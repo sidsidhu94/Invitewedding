@@ -1,0 +1,366 @@
+@import "tailwindcss";
+
+:root {
+  /* Modern High-End Lavender & Dark Violet Imperial Palette */
+  --font-calligraphy: 'Great Vibes', 'Alex Brush', cursive;
+  --font-brush: 'Great Vibes', 'Alex Brush', cursive;
+  --font-cinzel: 'Cinzel', serif;
+  --font-marcellus: 'Marcellus', serif;
+  --font-cinzel-dec: 'Cinzel Decorative', serif;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-playfair: 'Playfair Display', serif;
+  --font-pinyon: 'Pinyon Script', cursive;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-malayalam: 'Manjari', 'Gayathri', 'Noto Serif Malayalam', sans-serif;
+  --font-malayalam-serif: 'Noto Serif Malayalam', 'Gayathri', serif;
+
+  /* Sleek Imperial Dark Violet Base */
+  --color-bg-base: #0B0214;
+  --color-bg-surface: #160829;
+  --color-bg-card: #200D3B;
+  --color-gradient-start: #3F1973;
+  --color-gradient-mid: #160829;
+  --color-gradient-end: #0B0214;
+  
+  /* Luminous Lavender & Lilac Accents */
+  --color-neon-primary: #C084FC;
+  --color-neon-bright: #E9D5FF;
+  --color-neon-mint: #F3E8FF;
+  --color-neon-glow: rgba(192, 132, 252, 0.45);
+  --color-neon-border: rgba(192, 132, 252, 0.55);
+  
+  /* Luminous Lavender Pearl & Soft Warm Lilac */
+  --color-gold-light: #FAF5FF;
+  --color-gold-mid: #E9D5FF;
+  --color-gold-dark: #A855F7;
+  --color-gold-border: rgba(192, 132, 252, 0.5);
+  --color-gold-shadow: rgba(192, 132, 252, 0.25);
+  
+  --color-text-main: #FAF5FF;
+  --color-text-muted: #E9D5FF;
+  --color-text-subtle: #C4B5FD;
+
+  /* Drapery Colors */
+  --color-curtain-start: #3F1973;
+  --color-curtain-mid: #200D3B;
+  --color-curtain-dark: #0B0214;
+}
+
+/* Option A: Royal Burgundy & Rose Gold */
+[data-theme="burgundy"] {
+  --color-bg-base: #15050a;
+  --color-bg-surface: #2d0710;
+  --color-bg-card: #380813;
+  --color-gradient-start: #4a0c1a;
+  --color-gradient-mid: #2d0710;
+  --color-gradient-end: #15050a;
+  --color-gold-light: #fcf4f6;
+  --color-gold-mid: #e5a882;
+  --color-gold-dark: #b56f4d;
+  --color-gold-border: rgba(229, 168, 130, 0.45);
+  --color-gold-shadow: rgba(229, 168, 130, 0.25);
+  --color-text-main: #fcf4f6;
+  --color-text-muted: #e4cbcf;
+  --color-text-subtle: #ab8f95;
+  --color-curtain-start: #4a0c1a;
+  --color-curtain-mid: #380813;
+  --color-curtain-dark: #15050a;
+  --font-calligraphy: 'Pinyon Script', cursive;
+}
+
+/* Option B: Midnight Sapphire & Celestial Gold */
+[data-theme="sapphire"] {
+  --color-bg-base: #060b17;
+  --color-bg-surface: #0e1b38;
+  --color-bg-card: #142750;
+  --color-gradient-start: #1c3670;
+  --color-gradient-mid: #0e1b38;
+  --color-gradient-end: #060b17;
+  --color-gold-light: #fef4cf;
+  --color-gold-mid: #dfbd69;
+  --color-gold-dark: #b08d3b;
+  --color-gold-border: rgba(223, 189, 105, 0.45);
+  --color-gold-shadow: rgba(223, 189, 105, 0.25);
+  --color-text-main: #f8fafc;
+  --color-text-muted: #cbd5e1;
+  --color-text-subtle: #8fa0b5;
+  --color-curtain-start: #1c3670;
+  --color-curtain-mid: #0e1b38;
+  --color-curtain-dark: #060b17;
+  --font-calligraphy: 'MonteCarlo', cursive;
+}
+
+/* Option C: Heritage Plum & Antique Gold */
+[data-theme="plum"] {
+  --color-bg-base: #150522;
+  --color-bg-surface: #290d42;
+  --color-bg-card: #3d1461;
+  --color-gradient-start: #551d85;
+  --color-gradient-mid: #290d42;
+  --color-gradient-end: #150522;
+  --color-gold-light: #faf5fc;
+  --color-gold-mid: #e2be64;
+  --color-gold-dark: #b59238;
+  --color-gold-border: rgba(226, 190, 100, 0.45);
+  --color-gold-shadow: rgba(226, 190, 100, 0.25);
+  --color-text-main: #faf5fc;
+  --color-text-muted: #d9cedd;
+  --color-text-subtle: #a192a6;
+  --color-curtain-start: #551d85;
+  --color-curtain-mid: #290d42;
+  --color-curtain-dark: #150522;
+  --font-calligraphy: 'Cinzel Decorative', serif;
+}
+
+/* Option D: Ivory Silk & Tuscan Bronze */
+[data-theme="ivory"] {
+  --color-bg-base: #faf7f2;
+  --color-bg-surface: #f1e9dc;
+  --color-bg-card: #e4d8c5;
+  --color-gradient-start: #d6c3a7;
+  --color-gradient-mid: #f1e9dc;
+  --color-gradient-end: #faf7f2;
+  --color-gold-light: #4a3b2c;
+  --color-gold-mid: #b88628;
+  --color-gold-dark: #7a5513;
+  --color-gold-border: rgba(184, 134, 40, 0.45);
+  --color-gold-shadow: rgba(184, 134, 40, 0.2);
+  --color-text-main: #2b2219;
+  --color-text-muted: #5e5142;
+  --color-text-subtle: #877764;
+  --color-curtain-start: #4a3b2c;
+  --color-curtain-mid: #68533e;
+  --color-curtain-dark: #2f251b;
+  --font-calligraphy: 'Italianno', cursive;
+}
+
+/* Lavender & Dark Violet Theme */
+[data-theme="lavender-violet"],
+[data-theme="ocean-sand"],
+[data-theme="emerald"] {
+  --color-bg-base: #0B0214;
+  --color-bg-surface: #160829;
+  --color-bg-card: #200D3B;
+  --color-gradient-start: #3F1973;
+  --color-gradient-mid: #160829;
+  --color-gradient-end: #0B0214;
+  --color-gold-light: #FAF5FF;
+  --color-gold-mid: #E9D5FF;
+  --color-gold-dark: #A855F7;
+  --color-gold-border: rgba(192, 132, 252, 0.45);
+  --color-gold-shadow: rgba(192, 132, 252, 0.25);
+  --color-text-main: #FAF5FF;
+  --color-text-muted: #E9D5FF;
+  --color-text-subtle: #C4B5FD;
+  --color-curtain-start: #3F1973;
+  --color-curtain-mid: #200D3B;
+  --color-curtain-dark: #0B0214;
+  --font-calligraphy: 'Great Vibes', cursive;
+}
+
+/* Dynamic Typography Variant Overrides */
+[data-font="pinyon"] {
+  --font-calligraphy: 'Pinyon Script', cursive;
+}
+[data-font="montecarlo"] {
+  --font-calligraphy: 'MonteCarlo', cursive;
+}
+[data-font="italianno"] {
+  --font-calligraphy: 'Italianno', cursive;
+}
+[data-font="serif"] {
+  --font-calligraphy: 'Cinzel Decorative', 'Playfair Display', serif;
+}
+[data-font="modern"] {
+  --font-calligraphy: 'Playfair Display', serif;
+}
+[data-font="brush"] {
+  --font-calligraphy: 'Alex Brush', cursive;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-base);
+  color: var(--color-text-main);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Custom Font Utilities */
+.font-calligraphy {
+  font-family: var(--font-calligraphy);
+}
+
+.font-brush {
+  font-family: var(--font-brush);
+}
+
+.font-marcellus {
+  font-family: var(--font-marcellus);
+}
+
+.font-greatvibes {
+  font-family: 'Great Vibes', cursive;
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-cinzel-dec {
+  font-family: var(--font-cinzel-dec);
+}
+
+.font-garamond {
+  font-family: var(--font-serif);
+}
+
+.font-playfair {
+  font-family: var(--font-playfair);
+}
+
+.font-pinyon {
+  font-family: var(--font-pinyon);
+}
+
+.font-montecarlo {
+  font-family: var(--font-montecarlo);
+}
+
+.font-italianno {
+  font-family: var(--font-italianno);
+}
+
+.font-bodoni {
+  font-family: var(--font-bodoni);
+}
+
+/* Lavender & Dark Violet Gradient Text & Glows */
+.text-neon-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F3E8FF 30%, #C084FC 70%, #FAF5FF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-neon-bright {
+  color: #C084FC;
+  text-shadow: 0 0 12px rgba(192, 132, 252, 0.6), 0 0 24px rgba(192, 132, 252, 0.3);
+}
+
+.border-neon {
+  border-color: rgba(192, 132, 252, 0.5);
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.25);
+}
+
+.box-neon-glow {
+  box-shadow: 0 0 25px rgba(192, 132, 252, 0.3), inset 0 0 15px rgba(192, 132, 252, 0.1);
+}
+
+/* Gold Gradient Text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFFFFF 0%, #F3E8FF 40%, #C084FC 80%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+}
+
+.text-gold-light {
+  background: linear-gradient(135deg, #ffffff 0%, var(--color-gold-light) 40%, var(--color-gold-mid) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated Golden Shimmer */
+@keyframes luxuryShine {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.text-gold-shine {
+  background: linear-gradient(
+    90deg,
+    var(--color-gold-mid) 0%,
+    var(--color-gold-light) 25%,
+    #ffffff 50%,
+    var(--color-gold-light) 75%,
+    var(--color-gold-mid) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: luxuryShine 6s linear infinite;
+}
+
+/* Dynamic Gradients and Backgrounds */
+.bg-peacock-gradient, .bg-wedding-gradient {
+  background: radial-gradient(circle at center, var(--color-gradient-start) 0%, var(--color-gradient-mid) 60%, var(--color-gradient-end) 100%);
+}
+
+.border-gold {
+  border-color: var(--color-gold-border);
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, var(--color-gold-mid) 0%, var(--color-gold-dark) 50%, var(--color-gold-light) 100%);
+}
+
+.bg-card-ivory {
+  background-color: #fdfbf7;
+  background-image: radial-gradient(#e5e7eb 0.75px, transparent 0.75px), radial-gradient(#e5e7eb 0.75px, #fdfbf7 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+/* Metallic Shimmer Animation */
+@keyframes goldShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(225, 190, 101, 0.2) 0%,
+    rgba(254, 244, 207, 0.8) 50%,
+    rgba(225, 190, 101, 0.2) 100%
+  );
+  background-size: 200% 100%;
+  animation: goldShimmer 4s infinite linear;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg-base);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-gold-mid), var(--color-gradient-start));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-light);
+}
+
+.font-malayalam {
+  font-family: var(--font-malayalam);
+}
+
+.font-malayalam-serif {
+  font-family: var(--font-malayalam-serif);
+}
