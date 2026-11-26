@@ -65,9 +65,6 @@ const Navbar = () => {
             <span className="font-malayalam text-white text-xs sm:text-sm font-bold tracking-wider leading-tight">
               {weddingData.groom.shortName} <span className="text-[#C084FC]">&</span> {weddingData.bride.shortName}
             </span>
-            <span className="font-garamond italic text-[10px] sm:text-[11px] text-[#E9D5FF]">
-              ശുഭ വിവാഹം • Kerala Wedding
-            </span>
           </div>
         </a>
 

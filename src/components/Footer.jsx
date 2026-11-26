@@ -36,7 +36,7 @@ const Footer = () => {
         </p>
 
         <p className="text-[10px] font-malayalam text-[#C084FC]/70 tracking-wider">
-          © 2026 ഷബിൻ & കീർത്തന • ശുഭ വിവാഹം • Kerala Wedding Invitation
+          © 2026 ഷബിൻ & കീർത്തന
         </p>
       </div>
     </footer>
