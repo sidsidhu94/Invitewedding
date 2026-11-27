@@ -236,11 +236,11 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
                 <span className="font-malayalam text-[11px] uppercase tracking-[0.2em] text-[#783E12] font-bold">
                   ശുഭ വിവാഹം • ക്ഷണക്കത്ത്
                 </span>
-                <h3 className="font-malayalam font-bold text-2xl sm:text-3xl text-[#2C1405] my-1">
+                <h3 className="font-malayalam font-bold text-xl sm:text-2xl text-[#2C1405] my-1 whitespace-nowrap">
                   {weddingData.groom.name}
                 </h3>
                 <span className="font-serif text-xl sm:text-2xl text-[#B45309] font-normal">&amp;</span>
-                <h3 className="font-malayalam font-bold text-2xl sm:text-3xl text-[#2C1405] my-1">
+                <h3 className="font-malayalam font-bold text-xl sm:text-2xl text-[#2C1405] my-1 whitespace-nowrap">
                   {weddingData.bride.name}
                 </h3>
                 <p className="font-malayalam text-xs text-[#5C2E0B] mt-1">

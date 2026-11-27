@@ -1,12 +1,12 @@
 const weddingData = {
   groom: {
-    name: "ഷബിൻ വി",
+    name: "ഷബിൻ\u00A0വി",
     englishName: "Shabin V",
     shortName: "ഷബിൻ",
     possessiveName: "ഷബിന്റെ",
     englishShortName: "Shabin",
-    parents: "ശ്രീ. പവിത്രൻ കെ & ശ്രീമതി. സുമാലിനി വി",
-    family: "S/O ശ്രീ. പവിത്രൻ കെ & ശ്രീമതി. സുമാലിനി വി",
+    parents: "ശ്രീ. പവിത്രൻ\u00A0കെ & ശ്രീമതി. സുമാലിനി\u00A0വി",
+    family: "S/O ശ്രീ. പവിത്രൻ\u00A0കെ & ശ്രീമതി. സുമാലിനി\u00A0വി",
     address: "വടുവത്തുടിയൻ ഹൗസ്, അത്താഴക്കുന്ന്, പുല്ലൂപ്പി പി.ഒ., കൊറ്റാളി",
     addressLines: [
       "വടുവത്തുടിയൻ ഹൗസ്, അത്താഴക്കുന്ന്",
@@ -16,12 +16,12 @@ const weddingData = {
     mobiles: ["9747576547"]
   },
   bride: {
-    name: "കീർത്തന ഇ",
+    name: "കീർത്തന\u00A0ഇ",
     englishName: "Keerthana E",
     shortName: "കീർത്തന",
     englishShortName: "Keerthana",
-    parents: "ശ്രീ. സജീവൻ പി & ശ്രീമതി. സുനിത ഇ",
-    family: "D/O ശ്രീ. സജീവൻ പി & ശ്രീമതി. സുനിത ഇ",
+    parents: "ശ്രീ. സജീവൻ\u00A0പി & ശ്രീമതി. സുനിത\u00A0ഇ",
+    family: "D/O ശ്രീ. സജീവൻ\u00A0പി & ശ്രീമതി. സുനിത\u00A0ഇ",
     address: "പൈങ്കുടിയൻ ഹൗസ്, കുഞ്ഞിപ്പള്ളി (NEAR GHSSP), പി.ഒ. കൊറ്റാളി",
     addressLines: [
       "പൈങ്കുടിയൻ ഹൗസ്, കുഞ്ഞിപ്പള്ളി (NEAR GHSSP)",
@@ -71,7 +71,7 @@ const weddingData = {
     mapUrl: "https://maps.google.com/?q=Athazhakkunnu+Pulluppi+Kottali+Kannur"
   },
   contactPhones: [
-    { name: "ഷബിൻ വി", number: "9747576547", raw: "9747576547" }
+    { name: "ഷബിൻ\u00A0വി", number: "9747576547", raw: "9747576547" }
   ],
   compliments: "സ്നേഹപൂർവ്വം, സിബിൻ & ഷമിൻ"
 };

@@ -104,7 +104,7 @@ const Invitation = () => {
               <div className="relative z-10 my-4 py-1">
                 {/* Groom Name */}
                 <div>
-                  <h1 className="font-malayalam text-3xl sm:text-5xl text-[#2C1405] font-black leading-tight">
+                  <h1 className="font-malayalam text-2xl sm:text-4xl md:text-5xl text-[#2C1405] font-black leading-tight whitespace-nowrap inline-block">
                     {weddingData.groom.name}
                   </h1>
                   <div className={`inline-block px-3 py-1 rounded-full mt-1.5 ${activeStyle.accentBadge}`}>
@@ -123,7 +123,7 @@ const Invitation = () => {
 
                 {/* Bride Name */}
                 <div>
-                  <h1 className="font-malayalam text-3xl sm:text-5xl text-[#2C1405] font-black leading-tight">
+                  <h1 className="font-malayalam text-2xl sm:text-4xl md:text-5xl text-[#2C1405] font-black leading-tight whitespace-nowrap inline-block">
                     {weddingData.bride.name}
                   </h1>
                   <div className={`inline-block px-3 py-1 rounded-full mt-1.5 ${activeStyle.accentBadge}`}>

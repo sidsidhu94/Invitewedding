@@ -70,7 +70,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 35, filter: 'blur(8px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="font-malayalam text-5xl sm:text-7xl md:text-8xl text-[#2C1405] leading-tight tracking-normal font-black drop-shadow-sm"
+              className="font-malayalam text-4xl sm:text-6xl md:text-7xl lg:text-7xl text-[#2C1405] leading-tight tracking-normal font-black drop-shadow-sm whitespace-nowrap inline-block"
             >
               {weddingData.groom.name}
             </motion.h1>
@@ -110,7 +110,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 35, filter: 'blur(8px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 1.1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className="font-malayalam text-5xl sm:text-7xl md:text-8xl text-[#2C1405] leading-tight tracking-normal font-black drop-shadow-sm"
+              className="font-malayalam text-4xl sm:text-6xl md:text-7xl lg:text-7xl text-[#2C1405] leading-tight tracking-normal font-black drop-shadow-sm whitespace-nowrap inline-block"
             >
               {weddingData.bride.name}
             </motion.h1>
