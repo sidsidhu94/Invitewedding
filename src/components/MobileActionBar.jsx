@@ -8,14 +8,17 @@ export const MobileActionBar = () => {
 
   useEffect(() => {
     const handleAudioState = () => {
-      const audio = document.querySelector('audio');
+      const audio = document.getElementById('wedding-audio-element') || document.querySelector('audio');
       if (audio) {
-        setIsPlaying(!audio.paused);
+        setIsPlaying(!audio.paused && !audio.muted && audio.volume > 0);
       }
     };
 
     window.addEventListener('play-wedding-music', () => setIsPlaying(true));
-    const interval = setInterval(handleAudioState, 1000);
+    window.addEventListener('weddingAudioState', (e) => {
+      setIsPlaying(e.detail?.isPlaying ?? false);
+    });
+    const interval = setInterval(handleAudioState, 600);
     return () => {
       clearInterval(interval);
       window.removeEventListener('play-wedding-music', () => setIsPlaying(true));
@@ -23,13 +26,25 @@ export const MobileActionBar = () => {
   }, []);
 
   const toggleMusic = () => {
-    const audio = document.querySelector('audio');
+    const audio = document.getElementById('wedding-audio-element') || document.querySelector('audio');
     if (!audio) return;
-    if (audio.paused) {
-      audio.play().then(() => setIsPlaying(true)).catch(() => {});
-    } else {
+    
+    // If audio is playing with sound -> Mute & Pause it
+    if (!audio.paused && !audio.muted && audio.volume > 0) {
       audio.pause();
+      audio.muted = true;
       setIsPlaying(false);
+      window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: false } }));
+    } else {
+      // If audio is muted or paused -> Unmute & Play with sound
+      audio.muted = false;
+      audio.volume = 0.85;
+      audio.play().then(() => {
+        setIsPlaying(true);
+        window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: true } }));
+      }).catch((e) => {
+        console.error('Audio play error:', e);
+      });
     }
   };
 

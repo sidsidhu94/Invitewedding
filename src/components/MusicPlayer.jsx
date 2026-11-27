@@ -123,16 +123,34 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
 
   const togglePlay = () => {
     if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
+    const audio = audioRef.current;
+    if (!audio.paused && !audio.muted && audio.volume > 0) {
+      audio.pause();
       setIsPlaying(false);
+      window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: false } }));
     } else {
-      fadeInAndPlay();
+      audio.muted = false;
+      setIsMuted(false);
+      audio.volume = volume || 0.85;
+      audio.play().then(() => {
+        setIsPlaying(true);
+        window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: true } }));
+      }).catch(() => {});
     }
   };
 
   const toggleMute = () => {
-    setIsMuted((prev) => !prev);
+    if (!audioRef.current) return;
+    const nextMuted = !isMuted;
+    setIsMuted(nextMuted);
+    audioRef.current.muted = nextMuted;
+    audioRef.current.volume = nextMuted ? 0 : (volume || 0.85);
+    if (!nextMuted && audioRef.current.paused) {
+      audioRef.current.play().then(() => {
+        setIsPlaying(true);
+        window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: true } }));
+      }).catch(() => {});
+    }
   };
 
   return (
