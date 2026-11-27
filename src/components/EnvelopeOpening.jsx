@@ -198,7 +198,7 @@ const EnvelopeOpening = ({ onOpen }) => {
           >
             {/* ENVELOPE CONTAINER */}
             <div className="relative mx-auto w-full max-w-[440px] h-[340px] sm:h-[370px] rounded-2xl shadow-[0_25px_60px_rgba(0,0,0,0.85)] flex items-center justify-center">
-              
+
               {/* 1. BACK ENVELOPE INTERIOR (Lined with traditional gold damask pattern) */}
               <div className="absolute inset-0 rounded-2xl bg-[var(--color-bg-card,#380813)] border-2 border-[var(--color-gold-border,rgba(229,168,130,0.5))] overflow-hidden shadow-inner">
                 {/* Damask silk pattern overlay */}
@@ -237,7 +237,7 @@ const EnvelopeOpening = ({ onOpen }) => {
                   <p className="font-cinzel text-[10px] sm:text-xs text-[#9a3412] tracking-[0.2em] uppercase font-semibold">
                     {weddingData.invitationText.eventTitle}
                   </p>
-                  
+
                   {/* Couple Names (Bride Centric) */}
                   <h2 className="font-calligraphy text-2xl sm:text-3xl md:text-4xl text-[#78350f] font-bold leading-snug drop-shadow-sm pt-1">
                     {weddingData.bride.shortName} <span className="font-serif text-amber-600 text-xl font-normal">&</span> {weddingData.groom.shortName}
@@ -317,8 +317,8 @@ const EnvelopeOpening = ({ onOpen }) => {
                   openingPhase === 'breaking'
                     ? { scale: [1, 1.25, 0], opacity: [1, 1, 0], filter: 'brightness(1.5)' }
                     : openingPhase === 'card-up'
-                    ? { scale: 0, opacity: 0 }
-                    : { scale: 1, opacity: 1 }
+                      ? { scale: 0, opacity: 0 }
+                      : { scale: 1, opacity: 1 }
                 }
                 transition={{ duration: 0.5 }}
                 className="absolute top-[42%] left-1/2 -translate-x-1/2 -translate-y-1/2 z-35"
@@ -333,7 +333,7 @@ const EnvelopeOpening = ({ onOpen }) => {
 
                   {/* Wax Seal Body - Rich Crimson & Metallic Gold Rim */}
                   <div className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-full bg-gradient-to-br from-[#9b1d28] via-[#650b16] to-[#38040d] border-3 border-[var(--color-gold-mid,#e5a882)] shadow-[0_8px_25px_rgba(0,0,0,0.8),_inset_0_2px_4px_rgba(255,255,255,0.3)] flex flex-col items-center justify-center text-center">
-                    
+
                     {/* Organic Melted Wax Texture Edging */}
                     <div className="absolute inset-1 rounded-full border border-amber-300/40 opacity-70 pointer-events-none" />
 

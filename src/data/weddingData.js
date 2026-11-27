@@ -13,7 +13,8 @@ const weddingData = {
       "പുല്ലൂപ്പി പി.ഒ., കൊറ്റാളി, കണ്ണൂർ"
     ],
     mobile: "9747576547",
-    mobiles: ["9747576547"]
+    mobiles: ["9747576547"],
+    mapUrl: "https://maps.app.goo.gl/iiv5pBCcsei5ghmN6"
   },
   bride: {
     name: "കീർത്തന\u00A0ഇ",
@@ -28,7 +29,8 @@ const weddingData = {
       "പി.ഒ. കൊറ്റാളി, കണ്ണൂർ"
     ],
     mobile: "9747576547",
-    mobiles: ["9747576547"]
+    mobiles: ["9747576547"],
+    mapUrl: "https://maps.google.com/?q=Kunjippally+Kottali+Kannur"
   },
   invitationText: {
     greeting: "ഞങ്ങളുടെ വീട്ടിൽ വെച്ച് നടത്തുന്ന സൗഹൃദവിരുന്നിലേക്ക്",
@@ -68,7 +70,7 @@ const weddingData = {
     fullAddress: "വടുവത്തുടിയൻ ഹൗസ്, അത്താഴക്കുന്ന്, പുല്ലൂപ്പി പി.ഒ., കൊറ്റാളി, കണ്ണൂർ",
     invitation: "വിവാഹത്തോടനുബന്ധിച്ച് അന്നേദിവസം വൈകിട്ട് 5 മണി മുതൽ 9 മണി വരെ ഞങ്ങളുടെ വീട്ടിൽ വെച്ച് നടത്തുന്ന സൗഹൃദവിരുന്നിലേക്ക് താങ്കളെ കുടുംബസമേതം ക്ഷണിക്കുന്നു.",
     landmark: "Athazhakkunnu, Pulluppi, Kottali, Kannur",
-    mapUrl: "https://maps.google.com/?q=Athazhakkunnu+Pulluppi+Kottali+Kannur"
+    mapUrl: "https://maps.app.goo.gl/iiv5pBCcsei5ghmN6"
   },
   contactPhones: [
     { name: "ഷബിൻ\u00A0വി", number: "9747576547", raw: "9747576547" }
