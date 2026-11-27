@@ -20,8 +20,9 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
     
     if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
     
-    // Set initial volume and play immediately within user gesture
-    audio.volume = 0.1;
+    // Ensure audio is unmuted and play immediately
+    audio.muted = false;
+    audio.volume = 0.3;
     const playPromise = audio.play();
     
     if (playPromise !== undefined) {
@@ -29,16 +30,19 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
         .then(() => {
           setIsPlaying(true);
           const targetVol = isMuted ? 0 : volume;
-          let currentVol = 0.1;
-          const step = Math.max(0.04, targetVol / 15);
+          let currentVol = 0.3;
+          const step = Math.max(0.06, targetVol / 10);
           
           fadeIntervalRef.current = setInterval(() => {
             currentVol = Math.min(targetVol, currentVol + step);
-            if (audio) audio.volume = currentVol;
+            if (audio) {
+              audio.muted = false;
+              audio.volume = currentVol;
+            }
             if (currentVol >= targetVol) {
               clearInterval(fadeIntervalRef.current);
             }
-          }, 80);
+          }, 60);
         })
         .catch((e) => {
           console.log('Audio play error:', e);

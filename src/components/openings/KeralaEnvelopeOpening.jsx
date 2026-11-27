@@ -19,14 +19,17 @@ const PETALS = Array.from({ length: 24 }).map((_, i) => ({
 
 export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
   const [phase, setPhase] = useState('sealed');
-  const [countdown, setCountdown] = useState(2);
   const [isDone, setIsDone] = useState(false);
-  const timerRef = useRef(null);
 
   const startMusic = () => {
     if (typeof window !== 'undefined') {
       if (window.__playWeddingMusic) {
         window.__playWeddingMusic();
+      }
+      const audio = document.querySelector('audio');
+      if (audio) {
+        audio.muted = false;
+        audio.play().catch(() => {});
       }
       window.dispatchEvent(new CustomEvent('play-wedding-music'));
     }
@@ -38,7 +41,7 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
     setPhase('unsealing');
     startMusic();
 
-    // Step 1: Break seal & shower ocean teal and warm sand flakes
+    // Step 1: Break seal & shower golden flakes
     setTimeout(() => {
       confetti({
         particleCount: 85,
@@ -54,7 +57,7 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
       setPhase('card-rise');
     }, 700);
 
-    // Step 3: Fully open at 2 seconds
+    // Step 3: Fully open at 1.8 seconds
     setTimeout(() => {
       setPhase('opened');
       setIsDone(true);
@@ -62,22 +65,9 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
     }, 1800);
   };
 
-  // Auto-play music attempt on mount & 2-second auto-open
+  // Attempt ambient music play on mount
   useEffect(() => {
     startMusic();
-
-    const interval = setInterval(() => {
-      setCountdown((prev) => (prev > 1 ? prev - 1 : 1));
-    }, 1000);
-
-    timerRef.current = setTimeout(() => {
-      triggerOpen();
-    }, 2000);
-
-    return () => {
-      clearInterval(interval);
-      if (timerRef.current) clearTimeout(timerRef.current);
-    };
   }, []);
 
   return (
@@ -133,18 +123,11 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
             <ArrowRight className="w-3.5 h-3.5 text-[#B45309]" />
           </button>
 
-          {/* Top 2-Second Countdown Progress Bar */}
-          <div className="absolute top-0 left-0 right-0 z-40">
-            <div className="h-1 bg-black/10 w-full overflow-hidden">
-              <motion.div
-                initial={{ width: '0%' }}
-                animate={{ width: '100%' }}
-                transition={{ duration: 2, ease: 'linear' }}
-                className="h-full bg-gradient-to-r from-[#D97706] via-[#B45309] to-[#783E12] shadow-sm"
-              />
-            </div>
-            <div className="text-center pt-3 text-[10px] font-cinzel tracking-[0.25em] uppercase text-[#783E12]">
-              Opening in <span className="font-bold text-[#B45309]">{countdown}s</span> • Tap to open
+          {/* Top Audio / Music Cue Badge */}
+          <div className="absolute top-6 left-1/2 -translate-x-1/2 z-40 text-center pointer-events-none">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FEF3C7]/95 border border-[#D97706]/40 text-[#4A2508] text-[11px] sm:text-xs font-malayalam shadow-sm">
+              <Volume2 className="w-3.5 h-3.5 text-[#B45309] animate-pulse" />
+              <span>സംഗീതത്തോടെയുള്ള ക്ഷണക്കത്ത്</span>
             </div>
           </div>
 
@@ -259,12 +242,18 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
 
           </div>
 
-          {/* Bottom Tap Prompt */}
-          <div className="absolute bottom-6 left-0 right-0 z-30 text-center pointer-events-none">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FEF3C7] border border-[#D97706]/40 text-[#4A2508] text-xs font-cinzel tracking-wider shadow-sm">
-              <Sparkles className="w-3.5 h-3.5 text-[#B45309]" />
-              Tap anywhere to open
-            </span>
+          {/* Bottom Tap / Open CTA Button */}
+          <div className="absolute bottom-6 left-0 right-0 z-40 text-center px-4">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                triggerOpen();
+              }}
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#B45309] via-[#D97706] to-[#F59E0B] text-[#FFFDF0] text-xs sm:text-sm font-malayalam font-bold shadow-[0_6px_25px_rgba(180,83,9,0.35)] animate-bounce active:scale-95 cursor-pointer border border-[#FEF08A]/80 hover:scale-105 transition-transform"
+            >
+              <Sparkles className="w-4 h-4 text-[#FEF08A]" />
+              <span>ക്ഷണക്കത്ത് തുറക്കുക • Tap to Open</span>
+            </button>
           </div>
 
         </motion.div>
