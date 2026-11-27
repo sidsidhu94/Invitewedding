@@ -109,9 +109,9 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
   // Trigger audio on autoPlayTrigger
   useEffect(() => {
     if (autoPlayTrigger) {
-      fadeInAndPlay();
+      playWeddingAudio();
     }
-  }, [autoPlayTrigger, fadeInAndPlay]);
+  }, [autoPlayTrigger, playWeddingAudio]);
 
   const togglePlay = () => {
     if (!audioRef.current) return;
