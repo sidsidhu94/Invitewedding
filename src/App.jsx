@@ -21,31 +21,12 @@ function AppContent() {
   const [replayCount, setReplayCount] = useState(0);
   const [autoPlayMusic, setAutoPlayMusic] = useState(false);
 
-  // Attempt to start audio immediately when the page loads
-  useEffect(() => {
-    setAutoPlayMusic(true);
-    const triggerAudio = () => {
-      setAutoPlayMusic(true);
-      const audio = document.getElementById('wedding-audio-element') || document.querySelector('audio');
-      if (audio && (audio.paused || audio.muted)) {
-        audio.muted = false;
-        audio.play().catch(() => {});
-      }
-      if (typeof window !== 'undefined' && window.__playWeddingMusic) {
-        window.__playWeddingMusic();
-      }
-    };
-
-    window.addEventListener('touchstart', triggerAudio);
-    window.addEventListener('click', triggerAudio);
-    return () => {
-      window.removeEventListener('touchstart', triggerAudio);
-      window.removeEventListener('click', triggerAudio);
-    };
-  }, []);
-
+  // Audio begins ONLY when opening begins / "Tap to Open" is triggered
   const handleInviteStart = () => {
     setAutoPlayMusic(true);
+    if (typeof window !== 'undefined' && window.__playWeddingMusic) {
+      window.__playWeddingMusic();
+    }
   };
 
   const handleInviteOpen = () => {

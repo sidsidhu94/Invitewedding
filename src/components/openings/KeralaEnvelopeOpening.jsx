@@ -75,10 +75,8 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
     }, 1800);
   };
 
-  // Auto-play music attempt on mount & 2.2-second auto-open
+  // 2.2-second auto-open timer (Music starts only when envelope opens)
   useEffect(() => {
-    startMusic();
-
     const interval = setInterval(() => {
       setCountdown((prev) => (prev > 1 ? prev - 1 : 1));
     }, 1000);

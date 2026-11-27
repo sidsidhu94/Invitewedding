@@ -143,7 +143,6 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
         id="wedding-audio-element"
         loop
         preload="auto"
-        autoPlay
         playsInline
         onPlay={() => {
           setIsPlaying(true);
