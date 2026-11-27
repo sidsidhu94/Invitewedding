@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Invitation from './components/Invitation';
@@ -9,7 +9,6 @@ import Venue from './components/Venue';
 import Blessings from './components/Blessings';
 import MusicPlayer from './components/MusicPlayer';
 import MobileActionBar from './components/MobileActionBar';
-import AutoScrollTour from './components/AutoScrollTour';
 import Footer from './components/Footer';
 import { WritingStyleProvider } from './context/WritingStyleContext';
 
@@ -73,9 +72,6 @@ function AppContent() {
 
       {/* Sticky Mobile Quick-Action Dock (Save Date, Directions, Music Equalizer, WhatsApp) */}
       {invitationOpened && <MobileActionBar />}
-
-      {/* Gentle Auto-Scroll Guide Tour (starts 600ms after opening, pauses on any user touch) */}
-      {invitationOpened && <AutoScrollTour enabled={invitationOpened} />}
 
       {/* Footer */}
       <Footer />

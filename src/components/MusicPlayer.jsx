@@ -13,13 +13,13 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
   const fadeIntervalRef = useRef(null);
   const currentTrack = TRACKS[0];
 
-  // Smooth Volume Fade-in helper
-  const fadeInAndPlay = useCallback(() => {
+  // Unified Audio Play helper
+  const playWeddingAudio = useCallback(() => {
     if (!audioRef.current) return;
     const audio = audioRef.current;
     
     if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
-    
+
     // Unlock Web Audio API context if available
     try {
       const AudioCtx = window.AudioContext || window.webkitAudioContext;
@@ -31,51 +31,42 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
       }
     } catch (_) {}
 
-    // Ensure audio is unmuted and play immediately
+    // Ensure audio is unmuted and set volume directly
     audio.muted = false;
-    audio.volume = 0.5;
+    audio.volume = isMuted ? 0 : (volume || 0.85);
+
+    // If audio is already playing unmuted, return
+    if (!audio.paused && !audio.muted && audio.volume > 0) {
+      setIsPlaying(true);
+      return;
+    }
+
     const playPromise = audio.play();
-    
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
           setIsPlaying(true);
-          const targetVol = isMuted ? 0 : volume;
-          let currentVol = 0.5;
-          const step = Math.max(0.06, targetVol / 10);
-          
-          fadeIntervalRef.current = setInterval(() => {
-            currentVol = Math.min(targetVol, currentVol + step);
+          window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: true } }));
+        })
+        .catch((err) => {
+          console.warn('Audio play deferred waiting for interaction:', err);
+          // When browser blocks unmuted audio on 2s timer, unlock on first touch
+          const unlockAudio = () => {
             if (audio) {
               audio.muted = false;
-              audio.volume = currentVol;
+              audio.volume = volume || 0.85;
+              audio.play().then(() => {
+                setIsPlaying(true);
+                window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: true } }));
+              }).catch(() => {});
             }
-            if (currentVol >= targetVol) {
-              clearInterval(fadeIntervalRef.current);
-            }
-          }, 60);
-        })
-        .catch((e) => {
-          console.log('Direct autoplay blocked by browser policy; starting muted and auto-unmuting on first interaction:', e);
-          // Fallback: Start muted playback so the audio buffer is running in browser
-          audio.muted = true;
-          audio.play().then(() => {
-            setIsPlaying(true);
-          }).catch(() => {});
-
-          // Auto-unmute immediately on the slightest interaction anywhere
-          const autoUnmuteOnGesture = () => {
-            if (!audio) return;
-            audio.muted = false;
-            audio.volume = volume || 0.8;
-            audio.play().then(() => setIsPlaying(true)).catch(() => {});
-            ['pointerdown', 'touchstart', 'click', 'scroll', 'wheel', 'mousemove', 'keydown'].forEach((evt) => {
-              window.removeEventListener(evt, autoUnmuteOnGesture);
+            ['touchstart', 'click', 'pointerdown', 'wheel'].forEach((e) => {
+              window.removeEventListener(e, unlockAudio);
             });
           };
 
-          ['pointerdown', 'touchstart', 'click', 'scroll', 'wheel', 'mousemove', 'keydown'].forEach((evt) => {
-            window.addEventListener(evt, autoUnmuteOnGesture, { passive: true, once: true });
+          ['touchstart', 'click', 'pointerdown', 'wheel'].forEach((e) => {
+            window.addEventListener(e, unlockAudio, { passive: true, once: true });
           });
         });
     }
@@ -83,21 +74,22 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
 
   // Expose global play trigger so opening click directly triggers playback
   useEffect(() => {
-    window.__playWeddingMusic = fadeInAndPlay;
+    window.__playWeddingMusic = playWeddingAudio;
     window.__toggleWeddingMusic = () => {
       if (!audioRef.current) return false;
-      if (audioRef.current.paused) {
-        fadeInAndPlay();
-        return true;
-      } else {
-        audioRef.current.pause();
+      const audio = audioRef.current;
+      if (!audio.paused && !audio.muted && audio.volume > 0) {
+        audio.pause();
         setIsPlaying(false);
         window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: false } }));
         return false;
+      } else {
+        playWeddingAudio();
+        return true;
       }
     };
 
-    const handleCustomPlay = () => fadeInAndPlay();
+    const handleCustomPlay = () => playWeddingAudio();
     window.addEventListener('play-wedding-music', handleCustomPlay);
     return () => {
       delete window.__playWeddingMusic;
@@ -105,7 +97,7 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
       window.removeEventListener('play-wedding-music', handleCustomPlay);
       if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
     };
-  }, [fadeInAndPlay, isPlaying]);
+  }, [playWeddingAudio, isPlaying]);
 
   // Handle volume updates
   useEffect(() => {

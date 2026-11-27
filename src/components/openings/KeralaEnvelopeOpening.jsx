@@ -25,39 +25,6 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
 
   const startMusic = () => {
     if (typeof window !== 'undefined') {
-      const audio = document.getElementById('wedding-audio-element') || document.querySelector('audio');
-      if (audio) {
-        audio.muted = false;
-        audio.volume = 0.85;
-        const p = audio.play();
-        if (p !== undefined) {
-          p.then(() => {
-            window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: true } }));
-          }).catch(() => {
-            // If browser blocks unmuted playback on timer, start muted stream so audio runs
-            audio.muted = true;
-            audio.play().catch(() => {});
-
-            // Auto-unmute immediately on the first touch / click / scroll / movement
-            const unmuteOnFirstAction = () => {
-              if (audio) {
-                audio.muted = false;
-                audio.volume = 0.85;
-                audio.play().then(() => {
-                  window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: true } }));
-                }).catch(() => {});
-              }
-              ['touchstart', 'touchend', 'click', 'scroll', 'wheel', 'mousemove', 'pointerdown'].forEach((evt) => {
-                window.removeEventListener(evt, unmuteOnFirstAction);
-              });
-            };
-
-            ['touchstart', 'touchend', 'click', 'scroll', 'wheel', 'mousemove', 'pointerdown'].forEach((evt) => {
-              window.addEventListener(evt, unmuteOnFirstAction, { passive: true, once: true });
-            });
-          });
-        }
-      }
       if (window.__playWeddingMusic) {
         window.__playWeddingMusic();
       }
