@@ -81,26 +81,36 @@ export const AutoScrollTour = ({ enabled = true }) => {
 
     animFrameRef.current = requestAnimationFrame(scrollStep);
 
-    // Stop completely when user manually interacts or scrolls
-    const handleManualScroll = () => {
+    // Only stop auto-scrolling on genuine manual scroll actions (wheel, touch dragging)
+    // Tapping or clicking anywhere does NOT cancel auto-scroll; instead it unmutes the music!
+    const handleManualScrollAction = () => {
       setIsAutoScrolling(false);
       setHasUserManuallyScrolled(true);
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
     };
 
-    window.addEventListener('touchstart', handleManualScroll, { passive: true });
-    window.addEventListener('touchmove', handleManualScroll, { passive: true });
-    window.addEventListener('wheel', handleManualScroll, { passive: true });
-    window.addEventListener('pointerdown', handleManualScroll, { passive: true });
-    window.addEventListener('keydown', handleManualScroll, { passive: true });
+    const handleTapToWakeAudio = () => {
+      const audio = document.getElementById('wedding-audio-element') || document.querySelector('audio');
+      if (audio && (audio.paused || audio.muted)) {
+        audio.muted = false;
+        audio.play().then(() => setIsAudioPlaying(true)).catch(() => {});
+      }
+      if (typeof window !== 'undefined' && window.__playWeddingMusic) {
+        window.__playWeddingMusic();
+      }
+    };
+
+    window.addEventListener('touchmove', handleManualScrollAction, { passive: true });
+    window.addEventListener('wheel', handleManualScrollAction, { passive: true });
+    window.addEventListener('click', handleTapToWakeAudio);
+    window.addEventListener('touchstart', handleTapToWakeAudio, { passive: true });
 
     return () => {
       if (animFrameRef.current) cancelAnimationFrame(animFrameRef.current);
-      window.removeEventListener('touchstart', handleManualScroll);
-      window.removeEventListener('touchmove', handleManualScroll);
-      window.removeEventListener('wheel', handleManualScroll);
-      window.removeEventListener('pointerdown', handleManualScroll);
-      window.removeEventListener('keydown', handleManualScroll);
+      window.removeEventListener('touchmove', handleManualScrollAction);
+      window.removeEventListener('wheel', handleManualScrollAction);
+      window.removeEventListener('click', handleTapToWakeAudio);
+      window.removeEventListener('touchstart', handleTapToWakeAudio);
     };
   }, [isAutoScrolling]);
 

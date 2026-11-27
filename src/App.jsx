@@ -26,13 +26,18 @@ function AppContent() {
     setAutoPlayMusic(true);
     const triggerAudio = () => {
       setAutoPlayMusic(true);
+      const audio = document.getElementById('wedding-audio-element') || document.querySelector('audio');
+      if (audio && (audio.paused || audio.muted)) {
+        audio.muted = false;
+        audio.play().catch(() => {});
+      }
       if (typeof window !== 'undefined' && window.__playWeddingMusic) {
         window.__playWeddingMusic();
       }
     };
 
-    window.addEventListener('touchstart', triggerAudio, { once: true });
-    window.addEventListener('click', triggerAudio, { once: true });
+    window.addEventListener('touchstart', triggerAudio);
+    window.addEventListener('click', triggerAudio);
     return () => {
       window.removeEventListener('touchstart', triggerAudio);
       window.removeEventListener('click', triggerAudio);

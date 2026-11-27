@@ -19,7 +19,9 @@ const PETALS = Array.from({ length: 24 }).map((_, i) => ({
 
 export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
   const [phase, setPhase] = useState('sealed');
+  const [countdown, setCountdown] = useState(2);
   const [isDone, setIsDone] = useState(false);
+  const timerRef = useRef(null);
 
   const startMusic = () => {
     if (typeof window !== 'undefined') {
@@ -65,9 +67,22 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
     }, 1800);
   };
 
-  // Attempt ambient music play on mount
+  // Auto-play music attempt on mount & 2.2-second auto-open
   useEffect(() => {
     startMusic();
+
+    const interval = setInterval(() => {
+      setCountdown((prev) => (prev > 1 ? prev - 1 : 1));
+    }, 1000);
+
+    timerRef.current = setTimeout(() => {
+      triggerOpen();
+    }, 2200);
+
+    return () => {
+      clearInterval(interval);
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
   }, []);
 
   return (
