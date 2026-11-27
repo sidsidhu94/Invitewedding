@@ -146,13 +146,7 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
             <ArrowRight className="w-3.5 h-3.5 text-[#B45309]" />
           </button>
 
-          {/* Top Audio / Music Cue Badge */}
-          <div className="absolute top-6 left-1/2 -translate-x-1/2 z-40 text-center pointer-events-none">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#FEF3C7]/95 border border-[#D97706]/40 text-[#4A2508] text-[11px] sm:text-xs font-malayalam shadow-sm">
-              <Volume2 className="w-3.5 h-3.5 text-[#B45309] animate-pulse" />
-              <span>സംഗീതത്തോടെയുള്ള ക്ഷണക്കത്ത്</span>
-            </div>
-          </div>
+
 
           {/* Royal Butter Yellow Physical Envelope (Mobile Sized: max 340px) */}
           <div className="relative z-20 w-full max-w-[340px] sm:max-w-[380px] h-[440px] sm:h-[480px] flex items-center justify-center [perspective:1200px]">
