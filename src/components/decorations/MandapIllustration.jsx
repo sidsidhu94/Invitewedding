@@ -23,25 +23,25 @@ const MandapIllustration = ({ className = "w-24 h-16" }) => {
         <path d="M40 45 Q100 25 160 45" fill="none" stroke="#78350f" strokeWidth="1.5" strokeDasharray="3 2" />
 
         {/* Hanging Floral Toran Drops */}
-        <circle cx="60" cy="50" r="3" fill="#C084FC" />
+        <circle cx="60" cy="50" r="3" fill="#D97706" />
         <line x1="60" y1="45" x2="60" y2="50" stroke="#78350f" strokeWidth="1" />
         
-        <circle cx="80" cy="54" r="3.5" fill="#FAF5FF" />
+        <circle cx="80" cy="54" r="3.5" fill="#FEF08A" />
         <line x1="80" y1="43" x2="80" y2="54" stroke="#78350f" strokeWidth="1" />
         
-        <circle cx="100" cy="56" r="4" fill="#E9D5FF" />
+        <circle cx="100" cy="56" r="4" fill="#B45309" />
         <line x1="100" y1="42" x2="100" y2="56" stroke="#78350f" strokeWidth="1" />
         
-        <circle cx="120" cy="54" r="3.5" fill="#FAF5FF" />
+        <circle cx="120" cy="54" r="3.5" fill="#FEF08A" />
         <line x1="120" y1="43" x2="120" y2="54" stroke="#78350f" strokeWidth="1" />
         
-        <circle cx="140" cy="50" r="3" fill="#C084FC" />
+        <circle cx="140" cy="50" r="3" fill="#D97706" />
         <line x1="140" y1="45" x2="140" y2="50" stroke="#78350f" strokeWidth="1" />
 
         {/* Top Central Kalash Motif */}
         <path d="M92 25 C92 18 108 18 108 25 C108 30 92 30 92 25 Z" fill="url(#mandapGold)" />
-        <path d="M96 18 Q100 12 104 18 Z" fill="#C084FC" />
-        <circle cx="100" cy="11" r="3" fill="#FAF5FF" />
+        <path d="M96 18 Q100 12 104 18 Z" fill="#B45309" />
+        <circle cx="100" cy="11" r="3" fill="#FEF08A" />
 
         <defs>
           <linearGradient id="mandapGold" x1="0%" y1="0%" x2="100%" y2="100%">

@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  /* Modern High-End Lavender & Dark Violet Imperial Palette */
-  --font-calligraphy: 'Great Vibes', 'Alex Brush', cursive;
-  --font-brush: 'Great Vibes', 'Alex Brush', cursive;
+  /* Traditional Kerala Butter Yellow & Rich Dark Brown Wedding Card Palette */
+  --font-calligraphy: 'Marcellus', 'Cinzel', serif;
+  --font-brush: 'Marcellus', serif;
   --font-cinzel: 'Cinzel', serif;
   --font-marcellus: 'Marcellus', serif;
   --font-cinzel-dec: 'Cinzel Decorative', serif;
@@ -11,39 +11,40 @@
   --font-playfair: 'Playfair Display', serif;
   --font-pinyon: 'Pinyon Script', cursive;
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-malayalam: 'Manjari', 'Gayathri', 'Noto Serif Malayalam', sans-serif;
+  --font-malayalam: 'Noto Serif Malayalam', 'Gayathri', serif;
   --font-malayalam-serif: 'Noto Serif Malayalam', 'Gayathri', serif;
 
-  /* Sleek Imperial Dark Violet Base */
-  --color-bg-base: #0B0214;
-  --color-bg-surface: #160829;
-  --color-bg-card: #200D3B;
-  --color-gradient-start: #3F1973;
-  --color-gradient-mid: #160829;
-  --color-gradient-end: #0B0214;
+  /* Butter Yellow / Sandal Ivory Base */
+  --color-bg-base: #FEF9E7;
+  --color-bg-surface: #FFFDF0;
+  --color-bg-card: #FEF3C7;
+  --color-gradient-start: #FFFDF0;
+  --color-gradient-mid: #FEF9E7;
+  --color-gradient-end: #FDF6D8;
   
-  /* Luminous Lavender & Lilac Accents */
-  --color-neon-primary: #C084FC;
-  --color-neon-bright: #E9D5FF;
-  --color-neon-mint: #F3E8FF;
-  --color-neon-glow: rgba(192, 132, 252, 0.45);
-  --color-neon-border: rgba(192, 132, 252, 0.55);
+  /* Amber Gold & Warm Honey Accents */
+  --color-neon-primary: #D97706;
+  --color-neon-bright: #B45309;
+  --color-neon-mint: #FEF3C7;
+  --color-neon-glow: rgba(217, 119, 6, 0.25);
+  --color-neon-border: rgba(217, 119, 6, 0.45);
   
-  /* Luminous Lavender Pearl & Soft Warm Lilac */
-  --color-gold-light: #FAF5FF;
-  --color-gold-mid: #E9D5FF;
-  --color-gold-dark: #A855F7;
-  --color-gold-border: rgba(192, 132, 252, 0.5);
-  --color-gold-shadow: rgba(192, 132, 252, 0.25);
+  /* Antique Gold & Sandal Paste Tones */
+  --color-gold-light: #FEF08A;
+  --color-gold-mid: #D97706;
+  --color-gold-dark: #783E12;
+  --color-gold-border: rgba(180, 83, 9, 0.35);
+  --color-gold-shadow: rgba(74, 37, 8, 0.12);
   
-  --color-text-main: #FAF5FF;
-  --color-text-muted: #E9D5FF;
-  --color-text-subtle: #C4B5FD;
+  /* Deep Roasted Coffee / Dark Chocolate Brown Typography */
+  --color-text-main: #2C1405;
+  --color-text-muted: #5C2E0B;
+  --color-text-subtle: #783E12;
 
   /* Drapery Colors */
-  --color-curtain-start: #3F1973;
-  --color-curtain-mid: #200D3B;
-  --color-curtain-dark: #0B0214;
+  --color-curtain-start: #FEF3C7;
+  --color-curtain-mid: #FDE68A;
+  --color-curtain-dark: #F59E0B;
 }
 
 /* Option A: Royal Burgundy & Rose Gold */
@@ -134,28 +135,29 @@
   --font-calligraphy: 'Italianno', cursive;
 }
 
-/* Lavender & Dark Violet Theme */
+/* Butter Yellow & Dark Brown Theme */
+[data-theme="butter-yellow"],
 [data-theme="lavender-violet"],
 [data-theme="ocean-sand"],
 [data-theme="emerald"] {
-  --color-bg-base: #0B0214;
-  --color-bg-surface: #160829;
-  --color-bg-card: #200D3B;
-  --color-gradient-start: #3F1973;
-  --color-gradient-mid: #160829;
-  --color-gradient-end: #0B0214;
-  --color-gold-light: #FAF5FF;
-  --color-gold-mid: #E9D5FF;
-  --color-gold-dark: #A855F7;
-  --color-gold-border: rgba(192, 132, 252, 0.45);
-  --color-gold-shadow: rgba(192, 132, 252, 0.25);
-  --color-text-main: #FAF5FF;
-  --color-text-muted: #E9D5FF;
-  --color-text-subtle: #C4B5FD;
-  --color-curtain-start: #3F1973;
-  --color-curtain-mid: #200D3B;
-  --color-curtain-dark: #0B0214;
-  --font-calligraphy: 'Great Vibes', cursive;
+  --color-bg-base: #FEF9E7;
+  --color-bg-surface: #FFFDF0;
+  --color-bg-card: #FEF3C7;
+  --color-gradient-start: #FFFDF0;
+  --color-gradient-mid: #FEF9E7;
+  --color-gradient-end: #FDF6D8;
+  --color-gold-light: #FEF08A;
+  --color-gold-mid: #D97706;
+  --color-gold-dark: #783E12;
+  --color-gold-border: rgba(180, 83, 9, 0.35);
+  --color-gold-shadow: rgba(74, 37, 8, 0.12);
+  --color-text-main: #2C1405;
+  --color-text-muted: #5C2E0B;
+  --color-text-subtle: #783E12;
+  --color-curtain-start: #FEF3C7;
+  --color-curtain-mid: #FDE68A;
+  --color-curtain-dark: #F59E0B;
+  --font-calligraphy: 'Marcellus', serif;
 }
 
 /* Dynamic Typography Variant Overrides */
@@ -234,31 +236,31 @@ body {
   font-family: var(--font-bodoni);
 }
 
-/* Lavender & Dark Violet Gradient Text & Glows */
+/* Butter Yellow & Dark Brown Gradient Text & Glows */
 .text-neon-gradient {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F3E8FF 30%, #C084FC 70%, #FAF5FF 100%);
+  background: linear-gradient(135deg, #2C1405 0%, #4A2508 45%, #783E12 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-neon-bright {
-  color: #C084FC;
-  text-shadow: 0 0 12px rgba(192, 132, 252, 0.6), 0 0 24px rgba(192, 132, 252, 0.3);
+  color: #783E12;
+  text-shadow: 0 0 10px rgba(217, 119, 6, 0.3);
 }
 
 .border-neon {
-  border-color: rgba(192, 132, 252, 0.5);
-  box-shadow: 0 0 15px rgba(192, 132, 252, 0.25);
+  border-color: rgba(217, 119, 6, 0.35);
+  box-shadow: 0 0 15px rgba(217, 119, 6, 0.15);
 }
 
 .box-neon-glow {
-  box-shadow: 0 0 25px rgba(192, 132, 252, 0.3), inset 0 0 15px rgba(192, 132, 252, 0.1);
+  box-shadow: 0 0 25px rgba(217, 119, 6, 0.15), inset 0 0 15px rgba(217, 119, 6, 0.08);
 }
 
 /* Gold Gradient Text */
 .text-gold-gradient {
-  background: linear-gradient(135deg, #FFFFFF 0%, #F3E8FF 40%, #C084FC 80%, #FFFFFF 100%);
+  background: linear-gradient(135deg, #2C1405 0%, #4A2508 40%, #783E12 80%, #2C1405 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;

@@ -54,7 +54,7 @@ function AppContent() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--color-bg-base,#0B0214)] text-[var(--color-text-main,#FAF5FF)] selection:bg-[#C084FC] selection:text-white transition-colors duration-500 overflow-x-hidden font-sans pb-16 md:pb-0">
+    <div className="min-h-screen bg-[var(--color-bg-base,#FEF9E7)] text-[var(--color-text-main,#2C1405)] selection:bg-[#FDE68A] selection:text-[#2C1405] transition-colors duration-500 overflow-x-hidden font-sans pb-16 md:pb-0">
       
       {/* 2-Second Royal Kasavu Physical Envelope Opening */}
       {!invitationOpened && (

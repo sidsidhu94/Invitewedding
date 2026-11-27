@@ -68,22 +68,22 @@ export const MobileActionBar = () => {
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.5, duration: 0.6 }}
-        className="pointer-events-auto max-w-[390px] w-full bg-[#160829]/95 backdrop-blur-xl border border-[#C084FC]/50 rounded-full px-3 py-2 shadow-[0_10px_35px_rgba(0,0,0,0.9),_0_0_20px_rgba(192,132,252,0.25)] flex items-center justify-between gap-1"
+        className="pointer-events-auto max-w-[390px] w-full bg-[#FEF9E7]/95 backdrop-blur-xl border border-[#D97706]/35 rounded-full px-3 py-2 shadow-[0_10px_35px_rgba(74,37,8,0.15)] flex items-center justify-between gap-1"
       >
         {/* 1. Music Toggle Button with Equalizer */}
         <button
           onClick={toggleMusic}
-          className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#200D3B] border border-[#C084FC]/40 text-[#FAF5FF] text-xs font-cinzel font-bold transition-all active:scale-95 shadow-sm"
+          className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#FEF3C7] border border-[#D97706]/35 text-[#2C1405] text-xs font-cinzel font-bold transition-all active:scale-95 shadow-sm"
           title="Play / Pause Wedding Music"
         >
           {isPlaying ? (
             <div className="flex items-end gap-0.5 h-3">
-              <span className="w-0.5 h-2.5 bg-[#C084FC] animate-pulse" />
-              <span className="w-0.5 h-3.5 bg-white animate-bounce" />
-              <span className="w-0.5 h-2 bg-[#D8B4FE] animate-pulse" />
+              <span className="w-0.5 h-2.5 bg-[#B45309] animate-pulse" />
+              <span className="w-0.5 h-3.5 bg-[#783E12] animate-bounce" />
+              <span className="w-0.5 h-2 bg-[#D97706] animate-pulse" />
             </div>
           ) : (
-            <VolumeX className="w-3.5 h-3.5 text-stone-400" />
+            <VolumeX className="w-3.5 h-3.5 text-[#783E12]" />
           )}
           <span className="text-[11px] uppercase tracking-wider">{isPlaying ? 'Music' : 'Muted'}</span>
         </button>
@@ -91,27 +91,27 @@ export const MobileActionBar = () => {
         {/* 2. Save Date Button */}
         <button
           onClick={handleAddToCalendar}
-          className="p-2 rounded-full text-white hover:bg-white/10 active:scale-95 transition-all flex flex-col items-center"
+          className="p-2 rounded-full text-[#4A2508] hover:bg-black/5 active:scale-95 transition-all flex flex-col items-center"
           title="Add to Calendar"
         >
-          <Calendar className="w-4 h-4 text-[#C084FC]" />
-          <span className="text-[9px] font-cinzel font-semibold text-[#E9D5FF] mt-0.5">Date</span>
+          <Calendar className="w-4 h-4 text-[#B45309]" />
+          <span className="text-[9px] font-cinzel font-semibold text-[#783E12] mt-0.5">Date</span>
         </button>
 
         {/* 3. Directions Map Button */}
         <button
           onClick={handleOpenMap}
-          className="p-2 rounded-full text-white hover:bg-white/10 active:scale-95 transition-all flex flex-col items-center"
+          className="p-2 rounded-full text-[#4A2508] hover:bg-black/5 active:scale-95 transition-all flex flex-col items-center"
           title="Get Directions on Google Maps"
         >
-          <Navigation className="w-4 h-4 text-[#C084FC]" />
-          <span className="text-[9px] font-cinzel font-semibold text-[#E9D5FF] mt-0.5">Maps</span>
+          <Navigation className="w-4 h-4 text-[#B45309]" />
+          <span className="text-[9px] font-cinzel font-semibold text-[#783E12] mt-0.5">Maps</span>
         </button>
 
         {/* 4. WhatsApp Share Button */}
         <button
           onClick={handleShareWhatsApp}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#9333EA] to-[#C084FC] text-white text-[11px] font-cinzel font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(192,132,252,0.4)] transition-all active:scale-95"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#B45309] to-[#D97706] text-white text-[11px] font-cinzel font-bold uppercase tracking-wider shadow-sm transition-all active:scale-95"
           title="Share on WhatsApp"
         >
           <MessageCircle className="w-3.5 h-3.5 fill-white" />

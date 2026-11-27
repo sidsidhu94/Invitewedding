@@ -154,8 +154,8 @@ export const NilavilakkuIllustration = ({ className = "w-24 h-36", glowing = tru
       <path d="M86 166 Q90 160 94 166" stroke="#5A3E09" strokeWidth="1" fill="none" />
 
       {/* Auspicious Jewel Tilak on Lamp Base */}
-      <ellipse cx="60" cy="155" rx="3.5" ry="3.5" fill="#C084FC" />
-      <circle cx="60" cy="155" r="1.5" fill="#FAF5FF" />
+      <ellipse cx="60" cy="155" rx="3.5" ry="3.5" fill="#B45309" />
+      <circle cx="60" cy="155" r="1.5" fill="#FEF08A" />
     </svg>
   );
 };

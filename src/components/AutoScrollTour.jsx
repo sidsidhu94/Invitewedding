@@ -89,11 +89,11 @@ export const AutoScrollTour = ({ enabled = true }) => {
         >
           <button
             onClick={stopAutoScroll}
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#160829]/90 border border-[#C084FC]/60 text-[#E9D5FF] text-[10px] font-cinzel font-bold uppercase tracking-wider backdrop-blur-md shadow-[0_0_15px_rgba(192,132,252,0.35)] animate-pulse active:scale-95 cursor-pointer"
+            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FEF9E7]/95 border border-[#D97706]/50 text-[#4A2508] text-[10px] font-cinzel font-bold uppercase tracking-wider backdrop-blur-md shadow-md animate-pulse active:scale-95 cursor-pointer"
           >
             <span>Auto-Scrolling</span>
-            <ChevronDown className="w-3 h-3 text-[#C084FC] animate-bounce" />
-            <span className="text-white/60 font-normal pl-1 border-l border-white/20">Touch to take control</span>
+            <ChevronDown className="w-3 h-3 text-[#B45309] animate-bounce" />
+            <span className="text-[#783E12]/70 font-normal pl-1 border-l border-[#D97706]/30">Touch to take control</span>
           </button>
         </motion.div>
       )}

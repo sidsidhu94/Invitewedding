@@ -4,31 +4,31 @@ import { ThemeContext } from './ThemeContextCore';
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Always force pure Lavender & Dark Violet palette
-    localStorage.setItem('wedding-theme-v5', 'lavender-violet');
-    return 'lavender-violet';
+    // Always force pure Butter Yellow & Dark Brown palette
+    localStorage.setItem('wedding-theme-v6', 'butter-yellow');
+    return 'butter-yellow';
   });
 
   const [font, setFont] = useState(() => {
-    return localStorage.getItem('wedding-font-v5') || 'brush';
+    return localStorage.getItem('wedding-font-v6') || 'marcellus';
   });
 
   const [ceremony, setCeremony] = useState(() => {
-    return localStorage.getItem('wedding-ceremony-v5') || 'kerala';
+    return localStorage.getItem('wedding-ceremony-v6') || 'kerala';
   });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('wedding-theme-v5', theme);
+    localStorage.setItem('wedding-theme-v6', theme);
   }, [theme]);
 
   useEffect(() => {
     document.documentElement.setAttribute('data-font', font);
-    localStorage.setItem('wedding-font-v5', font);
+    localStorage.setItem('wedding-font-v6', font);
   }, [font]);
 
   useEffect(() => {
-    localStorage.setItem('wedding-ceremony-v5', ceremony);
+    localStorage.setItem('wedding-ceremony-v6', ceremony);
   }, [ceremony]);
 
   return (

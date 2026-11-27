@@ -22,7 +22,7 @@ const WeddingRingIllustration = ({ className = "w-12 h-12" }) => {
         <circle cx="38" cy="42" r="25" fill="none" stroke="#78350f" strokeWidth="0.8" opacity="0.6" />
 
         {/* Diamond Solitaire on Left Ring */}
-        <path d="M38 14 L42 20 L38 24 L34 20 Z" fill="#FAF5FF" stroke="#C084FC" strokeWidth="0.8" />
+        <path d="M38 14 L42 20 L38 24 L34 20 Z" fill="#FEF08A" stroke="#B45309" strokeWidth="0.8" />
         <circle cx="38" cy="19" r="1.5" fill="#ffffff" />
 
         {/* Right Ring Interlocking */}

@@ -41,7 +41,7 @@ export const THEMES = [
     shortName: 'Lavender Violet',
     description: 'Deep imperial dark violet velvet with luminous wisteria lavender and soft pearl white accents',
     badge: 'Lavender & Violet',
-    swatches: ['#0B0214', '#160829', '#C084FC', '#FAF5FF'],
+    swatches: ['#FFFDF0', '#FEF9E7', '#D97706', '#2C1405'],
     defaultFont: 'brush',
   },
 ];

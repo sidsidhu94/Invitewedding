@@ -1,33 +1,33 @@
 import React, { createContext, useContext } from 'react';
 
-export const LAVENDER_VIOLET_STYLE = {
-  id: 'lavender-dark-violet',
-  name: 'Lavender & Dark Violet',
-  badge: 'Imperial Lavender & Violet',
-  tagline: 'Deep Imperial Dark Violet with Luminous Soft Lavender & Pearl White Lettering',
-  cardBg: 'bg-gradient-to-b from-[#240E44] via-[#1A0933] to-[#0E031B]',
-  cardBorder: 'border-2 border-[#C084FC]/80 shadow-[0_25px_65px_rgba(0,0,0,0.95),_0_0_30px_rgba(192,132,252,0.3)]',
-  innerRim: 'border border-[#C084FC]/40 bg-[#0B0214]/95',
-  cardSurface: 'bg-gradient-to-b from-[#240E44] via-[#1A0933] to-[#0E031B] text-[#FAF5FF]',
+export const BUTTER_YELLOW_STYLE = {
+  id: 'butter-yellow',
+  name: 'Butter Yellow & Dark Brown',
+  badge: 'Royal Sandal & Butter Ivory',
+  tagline: 'Warm Butter Yellow Card with Deep Roasted Coffee Dark Brown Typography',
+  cardBg: 'bg-[#FFFDF0]',
+  cardBorder: 'border-2 border-[#D97706]/40 shadow-[0_20px_50px_rgba(74,37,8,0.1),_0_0_20px_rgba(217,119,6,0.1)]',
+  innerRim: 'border border-[#D97706]/25 bg-[#FFFDF0]',
+  cardSurface: 'bg-[#FFFDF0] text-[#2C1405]',
   // Typography
-  titleGradient: 'text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-[#F3E8FF] to-[#C084FC] drop-shadow-[0_2px_15px_rgba(192,132,252,0.4)]',
-  titleSolid: 'text-[#E9D5FF]',
-  subtitleScript: 'text-[#C084FC]',
-  bodyText: 'text-[#FAF5FF]',
-  mutedText: 'text-[#E9D5FF]',
-  subtleLabel: 'text-[#D8B4FE]',
-  accentBadge: 'bg-[#C084FC]/15 border border-[#C084FC]/50 text-[#F3E8FF]',
-  highlightBox: 'bg-gradient-to-r from-[#C084FC]/20 to-[#1A0933] border border-[#C084FC]/80 text-[#FAF5FF]',
-  clockIcon: 'text-[#C084FC]',
-  divider: 'bg-[#C084FC]/70',
-  isLight: false,
+  titleGradient: 'text-transparent bg-clip-text bg-gradient-to-r from-[#2C1405] via-[#4A2508] to-[#783E12]',
+  titleSolid: 'text-[#2C1405]',
+  subtitleScript: 'text-[#783E12]',
+  bodyText: 'text-[#2C1405]',
+  mutedText: 'text-[#5C2E0B]',
+  subtleLabel: 'text-[#854D0E]',
+  accentBadge: 'bg-[#FEF3C7] border border-[#D97706]/35 text-[#4A2508]',
+  highlightBox: 'bg-[#FEF9E7] border border-[#D97706]/30 text-[#2C1405]',
+  clockIcon: 'text-[#B45309]',
+  divider: 'bg-[#D97706]/35',
+  isLight: true,
 };
 
 const WritingStyleContext = createContext(null);
 
 export const WritingStyleProvider = ({ children }) => {
   return (
-    <WritingStyleContext.Provider value={{ activeStyle: LAVENDER_VIOLET_STYLE, styleId: 'lavender-dark-violet' }}>
+    <WritingStyleContext.Provider value={{ activeStyle: BUTTER_YELLOW_STYLE, styleId: 'butter-yellow' }}>
       {children}
     </WritingStyleContext.Provider>
   );
@@ -37,8 +37,8 @@ export const useWritingStyle = () => {
   const ctx = useContext(WritingStyleContext);
   if (!ctx) {
     return {
-      activeStyle: LAVENDER_VIOLET_STYLE,
-      styleId: 'lavender-dark-violet',
+      activeStyle: BUTTER_YELLOW_STYLE,
+      styleId: 'butter-yellow',
     };
   }
   return ctx;

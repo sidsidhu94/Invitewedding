@@ -21,7 +21,7 @@ const RSVP = ({ onClose }) => {
       particleCount: 100,
       spread: 70,
       origin: { y: 0.6 },
-      colors: ['#C084FC', '#E9D5FF', '#FAF5FF', '#9333EA', '#D8B4FE']
+      colors: ['#FEF08A', '#FDE047', '#F59E0B', '#D97706', '#FFFFFF']
     });
 
     setSubmitted(true);

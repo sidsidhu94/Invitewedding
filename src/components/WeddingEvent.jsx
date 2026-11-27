@@ -19,9 +19,9 @@ const WeddingEvent = () => {
   };
 
   return (
-    <section id="wedding" className="py-16 sm:py-24 px-3 sm:px-4 bg-gradient-to-b from-[#0B0214] via-[#160829] to-[#0B0214] relative transition-colors duration-500 overflow-hidden">
+    <section id="wedding" className="py-16 sm:py-24 px-3 sm:px-4 bg-gradient-to-b from-[#FEF9E7] via-[#FFFDF0] to-[#FEF9E7] relative transition-colors duration-500 overflow-hidden">
       {/* Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] bg-[#C084FC]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] bg-[#F59E0B]/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-[440px] sm:max-w-3xl mx-auto relative z-10">
         
@@ -34,10 +34,10 @@ const WeddingEvent = () => {
             transition={{ duration: 0.6 }}
           >
             <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] uppercase tracking-[0.25em] font-cinzel mb-2 ${activeStyle.accentBadge}`}>
-              <Sparkles className="w-3 h-3" />
+              <Sparkles className="w-3 h-3 text-[#B45309]" />
               The Sacred Ceremony
             </span>
-            <h2 className={`font-malayalam text-3xl sm:text-4xl font-extrabold tracking-wider ${activeStyle.titleGradient}`}>
+            <h2 className="font-malayalam text-3xl sm:text-4xl font-extrabold tracking-wider text-[#2C1405]">
               {weddingData.wedding.title} (THE WEDDING)
             </h2>
             <div className={`w-24 h-[1.5px] mx-auto mt-2.5 ${activeStyle.divider}`} />
@@ -56,60 +56,60 @@ const WeddingEvent = () => {
 
           {/* Icon Header */}
           <div className="relative z-10 mb-2">
-            <WeddingRingIllustration className={`w-14 h-14 mx-auto ${activeStyle.isLight ? 'text-[#8C6B28]' : 'text-[#C084FC]'} filter drop-shadow-[0_0_12px_rgba(192,132,252,0.6)]`} />
+            <WeddingRingIllustration className="w-14 h-14 mx-auto text-[#B45309] filter drop-shadow-[0_2px_4px_rgba(180,83,9,0.25)]" />
           </div>
 
           <span className={`font-malayalam text-base sm:text-lg font-semibold ${activeStyle.subtleLabel}`}>
             ശുഭ മുഹൂർത്തം
           </span>
           
-          <h3 className={`font-malayalam text-2xl sm:text-3xl font-extrabold tracking-wide mt-0.5 mb-4 ${activeStyle.titleGradient}`}>
+          <h3 className="font-malayalam text-2xl sm:text-3xl font-extrabold tracking-wide mt-0.5 mb-4 text-[#2C1405]">
             {weddingData.wedding.title}
           </h3>
 
           {/* Event Details Stack for Mobile */}
           <div className="flex flex-col gap-3 max-w-md mx-auto mb-6 text-left">
             
-            {/* Muhurtham Timing Box (Highlighted Neon Glow) */}
-            <div className={`p-4 rounded-2xl flex items-center gap-3.5 shadow-md ${activeStyle.highlightBox}`}>
-              <div className={`p-2.5 rounded-full border shrink-0 ${activeStyle.isLight ? 'bg-[#C5A25D]/20 border-[#C5A25D]' : 'bg-[#9333EA]/25 border-[#C084FC]/60 text-white'}`}>
-                <Clock className={`w-5 h-5 ${activeStyle.clockIcon}`} />
+            {/* Muhurtham Timing Box */}
+            <div className={`p-4 rounded-2xl flex items-center gap-3.5 shadow-sm ${activeStyle.highlightBox}`}>
+              <div className="p-2.5 rounded-full border shrink-0 bg-[#FEF3C7] border-[#D97706]/40 text-[#B45309]">
+                <Clock className="w-5 h-5 text-[#B45309]" />
               </div>
               <div>
                 <span className={`font-malayalam text-xs font-bold block ${activeStyle.subtleLabel}`}>മുഹൂർത്തം (Muhurtham)</span>
-                <p className={`font-malayalam font-bold text-base sm:text-lg leading-tight mt-0.5 ${activeStyle.bodyText}`}>
+                <p className="font-malayalam font-bold text-base sm:text-lg leading-tight mt-0.5 text-[#2C1405]">
                   {weddingData.wedding.muhurtham}
                 </p>
               </div>
             </div>
 
             {/* Auspicious Date Box */}
-            <div className="p-3.5 rounded-2xl border flex items-center gap-3.5 shadow-sm bg-[#160829]/90 border-[#C084FC]/30 text-white">
-              <div className="p-2.5 rounded-full bg-[#C084FC]/15 border border-[#C084FC]/30 text-[#C084FC] shrink-0">
+            <div className="p-3.5 rounded-2xl border flex items-center gap-3.5 shadow-sm bg-[#FFFDF0] border-[#D97706]/30 text-[#2C1405]">
+              <div className="p-2.5 rounded-full bg-[#FEF3C7] border border-[#D97706]/40 text-[#B45309] shrink-0">
                 <Calendar className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-malayalam text-xs text-[#E9D5FF] font-semibold block">തീയതി (Date)</span>
-                <p className="font-malayalam font-bold text-sm sm:text-base text-white mt-0.5">
+                <span className="font-malayalam text-xs text-[#783E12] font-semibold block">തീയതി (Date)</span>
+                <p className="font-malayalam font-bold text-sm sm:text-base text-[#2C1405] mt-0.5">
                   {weddingData.wedding.date}
                 </p>
-                <p className="font-malayalam text-xs text-[#C084FC] mt-0.5">
+                <p className="font-malayalam text-xs text-[#B45309] mt-0.5">
                   ({weddingData.wedding.malayalamDate})
                 </p>
               </div>
             </div>
 
             {/* Venue Box */}
-            <div className="p-3.5 rounded-2xl bg-[#160829]/90 border border-[#C084FC]/30 flex items-center gap-3.5 shadow-sm">
-              <div className="p-2.5 rounded-full bg-[#C084FC]/15 border border-[#C084FC]/30 text-[#C084FC] shrink-0">
+            <div className="p-3.5 rounded-2xl bg-[#FFFDF0] border border-[#D97706]/30 flex items-center gap-3.5 shadow-sm">
+              <div className="p-2.5 rounded-full bg-[#FEF3C7] border border-[#D97706]/40 text-[#B45309] shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <span className="font-malayalam text-xs text-[#E9D5FF] font-semibold block">സ്ഥലം (Venue)</span>
-                <p className="font-malayalam font-bold text-sm sm:text-base text-white mt-0.5">
+                <span className="font-malayalam text-xs text-[#783E12] font-semibold block">സ്ഥലം (Venue)</span>
+                <p className="font-malayalam font-bold text-sm sm:text-base text-[#2C1405] mt-0.5">
                   {weddingData.wedding.venue} ({weddingData.bride.shortName}യുടെ വീട്)
                 </p>
-                <p className="font-malayalam text-[#FAF5FF]/90 text-xs mt-0.5">
+                <p className="font-malayalam text-[#5C2E0B] text-xs mt-0.5">
                   {weddingData.wedding.fullAddress}
                 </p>
               </div>
@@ -123,7 +123,7 @@ const WeddingEvent = () => {
               href={weddingData.wedding.mapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-[#9333EA] to-[#C084FC] active:scale-95 text-white font-cinzel font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(192,132,252,0.4)] transition-transform"
+              className="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-[#B45309] to-[#D97706] active:scale-95 text-white font-cinzel font-bold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-md transition-transform"
             >
               <Navigation className="w-4 h-4 text-white" />
               <span>Get Directions to Mandap</span>
@@ -131,9 +131,9 @@ const WeddingEvent = () => {
 
             <button
               onClick={handleAddToCalendar}
-              className="w-full sm:w-auto px-5 py-3 rounded-full border border-[#C084FC]/50 bg-[#160829] active:scale-95 text-[#E9D5FF] font-cinzel font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-transform cursor-pointer"
+              className="w-full sm:w-auto px-5 py-3 rounded-full border border-[#D97706]/40 bg-[#FEF3C7] active:scale-95 text-[#4A2508] font-cinzel font-semibold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-transform cursor-pointer"
             >
-              <Calendar className="w-4 h-4 text-[#C084FC]" />
+              <Calendar className="w-4 h-4 text-[#B45309]" />
               <span>Add to Calendar</span>
             </button>
           </div>

@@ -35,9 +35,9 @@ const GaneshaHeader = ({ className = "w-16 h-16 md:w-20 md:h-20" }) => {
         {/* Tusk */}
         <path d="M44 48 L38 50 L44 51 Z" fill="#fff" stroke="url(#goldGradient)" strokeWidth="0.5" />
         
-        {/* Tilak / Modak detail on forehead (Sacred Lavender Zari) */}
-        <path d="M47 30 Q50 24 53 30 Q50 36 47 30 Z" fill="#C084FC" />
-        <circle cx="50" cy="38" r="1.8" fill="#FAF5FF" />
+        {/* Tilak / Modak detail on forehead (Sacred Chandan / Kumkum) */}
+        <path d="M47 30 Q50 24 53 30 Q50 36 47 30 Z" fill="#B45309" />
+        <circle cx="50" cy="38" r="1.8" fill="#FEF08A" />
         <line x1="45" y1="33" x2="55" y2="33" stroke="url(#goldGradient)" strokeWidth="1.2" />
 
         {/* Eye lines */}

@@ -9,9 +9,9 @@ import { useWritingStyle } from '../context/WritingStyleContext';
 const Invitation = () => {
   const { activeStyle } = useWritingStyle();
   return (
-    <section id="invitation" className="py-16 sm:py-24 px-3 sm:px-4 bg-gradient-to-b from-[#0B0214] via-[#160829] to-[#0B0214] relative transition-colors duration-500 overflow-hidden">
-      {/* Ambient Neon Glow */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] bg-[#C084FC]/10 blur-3xl pointer-events-none" />
+    <section id="invitation" className="py-16 sm:py-24 px-3 sm:px-4 bg-gradient-to-b from-[#FEF9E7] via-[#FFFDF0] to-[#FEF9E7] relative transition-colors duration-500 overflow-hidden">
+      {/* Ambient Warm Honey Glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] bg-[#F59E0B]/10 blur-3xl pointer-events-none" />
 
       <div className="max-w-[440px] sm:max-w-2xl mx-auto relative z-10">
         
@@ -23,14 +23,14 @@ const Invitation = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#C084FC]/15 border border-[#C084FC]/40 text-[#E9D5FF] text-[11px] uppercase tracking-[0.25em] font-cinzel mb-2.5 shadow-inner font-semibold">
-              <Sparkles className="w-3 h-3 text-[#C084FC]" />
+            <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#FEF3C7] border border-[#D97706]/40 text-[#4A2508] text-[11px] uppercase tracking-[0.25em] font-cinzel mb-2.5 shadow-sm font-semibold">
+              <Sparkles className="w-3 h-3 text-[#B45309]" />
               Wedding Invitation
             </span>
-            <h2 className="font-marcellus text-2xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFFFFF] via-[#F3E8FF] to-[#C084FC] tracking-wider uppercase">
+            <h2 className="font-marcellus text-2xl sm:text-4xl font-extrabold text-[#2C1405] tracking-wider uppercase">
               {weddingData.invitationText.eventTitle}
             </h2>
-            <div className="w-24 h-[1.5px] bg-gradient-to-r from-transparent via-[#C084FC] to-transparent mx-auto mt-3 shadow-[0_0_8px_rgba(192,132,252,0.6)]" />
+            <div className="w-24 h-[1.5px] bg-gradient-to-r from-transparent via-[#D97706] to-transparent mx-auto mt-3 shadow-sm" />
           </motion.div>
         </div>
 
@@ -55,33 +55,35 @@ const Invitation = () => {
               }}
             >
               {/* Decorative Card Borders */}
-              <div className={`absolute inset-2 sm:inset-3 border rounded-lg pointer-events-none ${activeStyle.isLight ? 'border-[#C5A25D]/40' : 'border-[#C084FC]/30'}`} />
-              <div className={`absolute inset-3.5 sm:inset-4 border border-dashed rounded-md pointer-events-none ${activeStyle.isLight ? 'border-[#C5A25D]/25' : 'border-[#C084FC]/20'}`} />
+              <div className="absolute inset-2 sm:inset-3 border rounded-lg pointer-events-none border-[#D97706]/35" />
+              <div className="absolute inset-3.5 sm:inset-4 border border-dashed rounded-md pointer-events-none border-[#D97706]/20" />
 
               {/* 1. Auspicious Lord Ganesha Header Emblem */}
               <div className="relative z-10 flex flex-col items-center pt-1 pb-3">
-                <GaneshaHeader className={`w-14 h-14 sm:w-16 sm:h-16 mx-auto ${activeStyle.isLight ? 'text-[#8C6B28]' : 'text-[#C084FC]'} filter drop-shadow-[0_0_10px_rgba(192,132,252,0.5)]`} />
+                <GaneshaHeader className="w-14 h-14 sm:w-16 sm:h-16 mx-auto text-[#B45309] filter drop-shadow-[0_2px_4px_rgba(180,83,9,0.2)]" />
                 <div className={`w-20 h-[1.5px] mt-2 ${activeStyle.divider}`} />
               </div>
 
-              {/* 2. Host Family (Groom's Parents) */}
-              <div className={`relative z-10 my-3 pb-4 border-b ${activeStyle.isLight ? 'border-[#C5A25D]/30' : 'border-[#C084FC]/25'}`}>
+              {/* 2. Host Family (Groom's Parents - Protected from awkward wraps) */}
+              <div className="relative z-10 my-3 pb-4 border-b border-[#D97706]/25">
                 <p className={`font-cinzel text-[10px] uppercase tracking-[0.25em] font-bold mb-1 ${activeStyle.subtleLabel}`}>
                   Invitation From (സ്നേഹപൂർവ്വം ക്ഷണിക്കുന്നത്)
                 </p>
-                <h3 className={`font-malayalam font-bold text-lg sm:text-xl tracking-wide leading-snug ${activeStyle.bodyText}`}>
-                  {weddingData.groom.parents}
+                <h3 className="font-malayalam font-bold text-sm sm:text-base md:text-lg tracking-wide leading-relaxed text-[#2C1405] max-w-sm mx-auto">
+                  <span className="inline-block whitespace-nowrap">ശ്രീ. പവിത്രൻ കെ</span>
+                  <span className="text-[#B45309] font-normal mx-1.5">&amp;</span>
+                  <span className="inline-block whitespace-nowrap">ശ്രീമതി. സുമാലിനി വി</span>
                 </h3>
-                <p className={`font-malayalam text-xs sm:text-sm mt-1 max-w-sm mx-auto ${activeStyle.mutedText}`}>
+                <p className="font-malayalam text-xs sm:text-sm mt-1 max-w-sm mx-auto text-[#5C2E0B]">
                   {weddingData.groom.address}
                 </p>
                 {weddingData.groom.mobile && (
                   <div className="mt-2.5 flex items-center justify-center">
                     <a
                       href={`tel:${weddingData.groom.mobile}`}
-                      className={`inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full font-cinzel text-[11px] font-bold active:scale-95 transition-transform shadow-sm ${activeStyle.accentBadge}`}
+                      className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full font-cinzel text-[11px] font-bold active:scale-95 transition-transform shadow-sm bg-[#FEF3C7] border border-[#D97706]/40 text-[#4A2508]"
                     >
-                      <Phone className="w-3 h-3" />
+                      <Phone className="w-3 h-3 text-[#B45309]" />
                       <span>Mob: {weddingData.groom.mobile}</span>
                     </a>
                   </div>
@@ -98,40 +100,34 @@ const Invitation = () => {
                 </h4>
               </div>
 
-              {/* 4. Couple Names */}
-              <div className="relative z-10 my-5 py-1">
+              {/* 4. Couple Names (Pure Malayalam, No English Subtitles) */}
+              <div className="relative z-10 my-4 py-1">
                 {/* Groom Name */}
                 <div>
-                  <h1 className={`font-malayalam text-3xl sm:text-5xl ${activeStyle.titleGradient} font-black leading-tight`}>
+                  <h1 className="font-malayalam text-3xl sm:text-5xl text-[#2C1405] font-black leading-tight">
                     {weddingData.groom.name}
                   </h1>
-                  <p className={`font-greatvibes text-xl ${activeStyle.subtitleScript} italic`}>
-                    {weddingData.groom.englishName}
-                  </p>
-                  <div className={`inline-block px-3 py-1 rounded-full mt-1 ${activeStyle.accentBadge}`}>
-                    <p className={`font-malayalam text-[11px] sm:text-xs font-medium ${activeStyle.mutedText}`}>
+                  <div className={`inline-block px-3 py-1 rounded-full mt-1.5 ${activeStyle.accentBadge}`}>
+                    <p className={`font-malayalam text-[11px] sm:text-xs font-semibold ${activeStyle.mutedText}`}>
                       {weddingData.groom.family}
                     </p>
                   </div>
                 </div>
 
                 {/* Center Ampersand */}
-                <div className="my-3 flex items-center justify-center gap-2">
+                <div className="my-2.5 flex items-center justify-center gap-2">
                   <span className={`w-10 sm:w-16 h-[1.5px] ${activeStyle.divider}`} />
-                  <span className={`font-greatvibes text-2xl sm:text-3xl italic ${activeStyle.subtitleScript}`}>&</span>
+                  <span className="font-serif text-2xl sm:text-3xl text-[#B45309] font-normal">&amp;</span>
                   <span className={`w-10 sm:w-16 h-[1.5px] ${activeStyle.divider}`} />
                 </div>
 
                 {/* Bride Name */}
                 <div>
-                  <h1 className={`font-malayalam text-3xl sm:text-5xl ${activeStyle.titleGradient} font-black leading-tight`}>
+                  <h1 className="font-malayalam text-3xl sm:text-5xl text-[#2C1405] font-black leading-tight">
                     {weddingData.bride.name}
                   </h1>
-                  <p className={`font-greatvibes text-xl ${activeStyle.subtitleScript} italic`}>
-                    {weddingData.bride.englishName}
-                  </p>
-                  <div className={`inline-block px-3 py-1 rounded-full mt-1 ${activeStyle.accentBadge}`}>
-                    <p className={`font-malayalam text-[11px] sm:text-xs font-medium ${activeStyle.mutedText}`}>
+                  <div className={`inline-block px-3 py-1 rounded-full mt-1.5 ${activeStyle.accentBadge}`}>
+                    <p className={`font-malayalam text-[11px] sm:text-xs font-semibold ${activeStyle.mutedText}`}>
                       {weddingData.bride.family}
                     </p>
                   </div>
@@ -143,12 +139,12 @@ const Invitation = () => {
                 <KasavuBorder className="w-full h-2.5" />
               </div>
 
-              {/* 6. Auspicious Compliments */}
-              <div className="pt-1">
-                <p className={`font-cinzel text-[10px] uppercase tracking-[0.25em] font-bold ${activeStyle.subtleLabel}`}>
+              {/* 6. Auspicious Compliments (Proportionate size on mobile) */}
+              <div className="pt-2">
+                <p className="font-cinzel text-[9px] sm:text-[10px] uppercase tracking-[0.2em] font-bold text-[#854D0E]">
                   With Best Compliments From
                 </p>
-                <p className={`font-greatvibes text-3xl sm:text-4xl mt-0.5 ${activeStyle.titleSolid}`}>
+                <p className="font-malayalam font-bold text-sm sm:text-base mt-1 text-[#2C1405] leading-normal">
                   {weddingData.compliments}
                 </p>
               </div>

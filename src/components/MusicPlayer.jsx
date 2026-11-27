@@ -166,14 +166,14 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
                 <motion.div
                   animate={{ rotate: isPlaying ? 360 : 0 }}
                   transition={{ repeat: Infinity, duration: 4, ease: 'linear' }}
-                  className="w-full h-full rounded-full bg-gradient-to-tr from-slate-950 via-stone-900 to-purple-950 border-2 border-[#C084FC] shadow-md flex items-center justify-center"
+                  className="w-full h-full rounded-full bg-gradient-to-tr from-stone-900 via-amber-950 to-stone-900 border-2 border-[#D97706] shadow-md flex items-center justify-center"
                 >
-                  <div className="w-4 h-4 rounded-full border border-purple-300/40 bg-purple-500/30 flex items-center justify-center">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FAF5FF]" />
+                  <div className="w-4 h-4 rounded-full border border-amber-300/40 bg-amber-500/30 flex items-center justify-center">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#FEF08A]" />
                   </div>
                 </motion.div>
                 {isPlaying && (
-                  <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#C084FC] animate-ping" />
+                  <span className="absolute -top-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#D97706] animate-ping" />
                 )}
               </div>
 
@@ -227,9 +227,9 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
                   title={isMuted ? 'Unmute' : 'Mute'}
                 >
                   {isMuted || volume === 0 ? (
-                    <VolumeX className="w-4 h-4 text-[#C4B5FD]" />
+                    <VolumeX className="w-4 h-4 text-[#B45309]" />
                   ) : (
-                    <Volume2 className="w-4 h-4 text-[var(--color-gold-mid,#C084FC)]" />
+                    <Volume2 className="w-4 h-4 text-[var(--color-gold-mid,#D97706)]" />
                   )}
                 </button>
                 <input
@@ -242,7 +242,7 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
                     setVolume(parseFloat(e.target.value));
                     if (isMuted) setIsMuted(false);
                   }}
-                  className="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-[var(--color-gold-mid,#C084FC)]"
+                  className="w-full h-1 bg-stone-700 rounded-lg appearance-none cursor-pointer accent-[#B45309]"
                 />
               </div>
             </div>
@@ -272,10 +272,10 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
           whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.94 }}
           onClick={togglePlay}
-          className={`relative p-3 rounded-full border-2 border-[#C084FC] backdrop-blur-xl shadow-[0_8px_25px_rgba(0,0,0,0.5)] transition-all flex items-center justify-center cursor-pointer ${
+          className={`relative p-3 rounded-full border-2 border-[#D97706] backdrop-blur-xl shadow-md transition-all flex items-center justify-center cursor-pointer ${
             isPlaying
-              ? 'bg-gradient-to-tr from-[#9333EA] via-[#C084FC] to-[#FAF5FF] text-slate-950 shadow-purple-500/30'
-              : 'bg-[var(--color-bg-surface,#160829)]/95 text-[var(--color-gold-light,#FAF5FF)] hover:bg-[var(--color-bg-card,#200D3B)]'
+              ? 'bg-gradient-to-tr from-[#B45309] via-[#D97706] to-[#FEF08A] text-slate-950 shadow-amber-500/20'
+              : 'bg-[#FEF9E7]/95 text-[#4A2508] hover:bg-[#FEF3C7]'
           }`}
           title={isPlaying ? 'Pause Background Music' : 'Play Background Music'}
           aria-label="Toggle Wedding Music"
@@ -295,7 +295,7 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
 
           {/* Pulse Ripple on Play */}
           {isPlaying && (
-            <span className="absolute -inset-1 rounded-full border-2 border-[#C084FC] animate-ping opacity-40 pointer-events-none" />
+            <span className="absolute -inset-1 rounded-full border-2 border-[#D97706] animate-ping opacity-40 pointer-events-none" />
           )}
         </motion.button>
 
@@ -304,13 +304,13 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
           onClick={() => setIsExpanded(!isExpanded)}
-          className="hidden sm:flex items-center gap-2 py-2 px-3.5 rounded-full bg-[var(--color-bg-surface,#160829)]/90 border border-[var(--color-gold-border,rgba(192,132,252,0.4))] shadow-lg backdrop-blur-md text-[#FAF5FF] hover:border-[#C084FC] transition-all cursor-pointer"
+          className="hidden sm:flex items-center gap-2 py-2 px-3.5 rounded-full bg-[#FEF9E7]/95 border border-[#D97706]/40 shadow-md backdrop-blur-md text-[#2C1405] hover:border-[#D97706] transition-all cursor-pointer"
         >
           <span className="font-cinzel text-[11px] font-semibold tracking-wider max-w-[170px] truncate">
             {currentTrack.title}
           </span>
           <ChevronUp
-            className={`w-3.5 h-3.5 text-[var(--color-gold-mid,#e1be65)] transition-transform duration-200 ${
+            className={`w-3.5 h-3.5 text-[#B45309] transition-transform duration-200 ${
               isExpanded ? 'rotate-180' : ''
             }`}
           />

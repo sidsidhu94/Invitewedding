@@ -18,10 +18,10 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-[92dvh] flex flex-col justify-center items-center px-4 pt-20 pb-16 overflow-hidden bg-gradient-radial from-[#240E44] via-[#160829] to-[#0B0214] text-center select-none">
+    <section id="hero" className="relative min-h-[92dvh] flex flex-col justify-center items-center px-4 pt-20 pb-16 overflow-hidden bg-gradient-radial from-[#FFFDF0] via-[#FEF9E7] to-[#FDF6D8] text-center select-none">
       
-      {/* Ambient Lavender & Dark Violet Aura Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] bg-gradient-radial from-[#C084FC]/15 via-[#160829]/20 to-transparent rounded-full blur-3xl pointer-events-none animate-pulse" />
+      {/* Ambient Butter Yellow & Warm Honey Glows */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[340px] sm:w-[600px] h-[340px] sm:h-[600px] bg-gradient-radial from-amber-300/20 via-yellow-200/10 to-transparent rounded-full blur-3xl pointer-events-none animate-pulse" />
 
       {/* Decorative Subtle Background Lamps */}
       <div className="hidden md:block absolute left-6 top-1/2 -translate-y-1/2 opacity-60 pointer-events-none">
@@ -38,13 +38,13 @@ const Hero = () => {
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-[#C084FC]/50 bg-[#160829]/90 backdrop-blur-md mb-4 shadow-[0_0_20px_rgba(192,132,252,0.25)]"
+          className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full border border-[#D97706]/40 bg-[#FFFDF0]/90 backdrop-blur-md mb-4 shadow-sm"
         >
-          <Sparkles className="w-3.5 h-3.5 text-[#C084FC]" />
-          <span className="font-cinzel text-[#FAF5FF] text-[11px] sm:text-xs tracking-[0.25em] uppercase font-bold">
+          <Sparkles className="w-3.5 h-3.5 text-[#B45309]" />
+          <span className="font-cinzel text-[#2C1405] text-[11px] sm:text-xs tracking-[0.25em] uppercase font-bold">
             ഓം ശ്രീ ഗണേശായ നമഃ • ശുഭ വിവാഹം
           </span>
-          <Sparkles className="w-3.5 h-3.5 text-[#C084FC]" />
+          <Sparkles className="w-3.5 h-3.5 text-[#B45309]" />
         </motion.div>
 
         {/* Auspicious Tagline */}
@@ -52,12 +52,12 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="font-garamond italic text-[#E9D5FF] text-sm sm:text-base tracking-[0.2em] uppercase font-medium mb-1"
+          className="font-garamond italic text-[#783E12] text-sm sm:text-base tracking-[0.2em] uppercase font-medium mb-1"
         >
           Together with their families
         </motion.p>
 
-        {/* Grand Couple Name Entrance (Shining Ocean Teal & Warm Sand & White Gradient) */}
+        {/* Grand Couple Name Entrance (Pure Malayalam Typography, No English Subtitles) */}
         <div
           key={replayKey}
           onClick={() => setReplayKey((k) => k + 1)}
@@ -70,16 +70,13 @@ const Hero = () => {
               initial={{ opacity: 0, y: 35, filter: 'blur(8px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 1.1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className={`font-malayalam text-5xl sm:text-7xl md:text-8xl ${activeStyle.titleGradient} leading-tight tracking-normal font-black`}
+              className="font-malayalam text-5xl sm:text-7xl md:text-8xl text-[#2C1405] leading-tight tracking-normal font-black drop-shadow-sm"
             >
               {weddingData.groom.name}
             </motion.h1>
-            <p className={`font-greatvibes text-2xl sm:text-3xl ${activeStyle.subtitleScript} italic mt-0.5`}>
-              {weddingData.groom.englishName}
-            </p>
           </div>
 
-          {/* Centered Neon Ampersand Divider */}
+          {/* Centered Ampersand Divider */}
           <div className="flex items-center justify-center gap-3 my-2">
             <motion.span
               initial={{ scaleX: 0 }}
@@ -92,10 +89,10 @@ const Hero = () => {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ type: 'spring', delay: 0.6 }}
-              className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border border-[#C084FC]/80 bg-[#160829] flex items-center justify-center shadow-[0_0_15px_rgba(192,132,252,0.4)]"
+              className="w-9 h-9 sm:w-11 sm:h-11 rounded-full border border-[#D97706]/40 bg-[#FEF3C7] flex items-center justify-center shadow-sm"
             >
-              <span className="font-greatvibes text-2xl sm:text-3xl text-[#FAF5FF] italic pt-0.5">
-                &
+              <span className="font-serif text-xl sm:text-2xl text-[#B45309] font-normal pt-0.5">
+                &amp;
               </span>
             </motion.div>
 
@@ -113,13 +110,10 @@ const Hero = () => {
               initial={{ opacity: 0, y: 35, filter: 'blur(8px)' }}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 1.1, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
-              className={`font-malayalam text-5xl sm:text-7xl md:text-8xl ${activeStyle.titleGradient} leading-tight tracking-normal font-black`}
+              className="font-malayalam text-5xl sm:text-7xl md:text-8xl text-[#2C1405] leading-tight tracking-normal font-black drop-shadow-sm"
             >
               {weddingData.bride.name}
             </motion.h1>
-            <p className={`font-greatvibes text-2xl sm:text-3xl ${activeStyle.subtitleScript} italic mt-0.5`}>
-              {weddingData.bride.englishName}
-            </p>
           </div>
         </div>
 
@@ -133,22 +127,22 @@ const Hero = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.9 }}
-          className="w-full max-w-[340px] sm:max-w-md p-3.5 rounded-2xl bg-[#240E44]/90 border border-[#C084FC]/50 shadow-[0_0_20px_rgba(192,132,252,0.25)] backdrop-blur-md flex flex-col gap-1.5"
+          className="w-full max-w-[340px] sm:max-w-md p-3.5 rounded-2xl bg-[#FFFDF0]/95 border border-[#D97706]/35 shadow-md backdrop-blur-md flex flex-col gap-1.5"
         >
-          <div className="flex items-center justify-center gap-2 text-[#FAF5FF]">
-            <Calendar className="w-4 h-4 text-[#C084FC]" />
+          <div className="flex items-center justify-center gap-2 text-[#2C1405]">
+            <Calendar className="w-4 h-4 text-[#B45309]" />
             <span className="font-malayalam text-xs sm:text-sm font-bold tracking-wider">
               {weddingData.wedding.date} ({weddingData.wedding.malayalamDate})
             </span>
           </div>
 
-          <div className="flex items-center justify-center gap-1.5 text-xs text-[#E9D5FF] font-malayalam">
-            <Clock className="w-3.5 h-3.5 text-[#C084FC] shrink-0" />
+          <div className="flex items-center justify-center gap-1.5 text-xs text-[#5C2E0B] font-malayalam">
+            <Clock className="w-3.5 h-3.5 text-[#B45309] shrink-0" />
             <span>മുഹൂർത്തം: {weddingData.wedding.muhurtham}</span>
           </div>
 
-          <div className="flex items-center justify-center gap-1.5 text-xs text-[#E9D5FF] font-malayalam">
-            <MapPin className="w-3.5 h-3.5 text-[#C084FC] shrink-0" />
+          <div className="flex items-center justify-center gap-1.5 text-xs text-[#5C2E0B] font-malayalam">
+            <MapPin className="w-3.5 h-3.5 text-[#B45309] shrink-0" />
             <span>സ്ഥലം: {weddingData.wedding.venue}, {weddingData.wedding.location}</span>
           </div>
         </motion.div>
@@ -161,11 +155,11 @@ const Hero = () => {
           className="mt-7 flex flex-col items-center cursor-pointer active:scale-95 transition-transform"
           onClick={scrollToInvitation}
         >
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#C084FC]/15 border border-[#C084FC]/60 text-[#E9D5FF] shadow-[0_0_20px_rgba(192,132,252,0.3)] animate-pulse">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#FEF3C7] border border-[#D97706]/40 text-[#4A2508] shadow-sm animate-pulse">
             <span className="font-cinzel text-[11px] uppercase tracking-[0.2em] font-bold">
               Scroll Down to Explore
             </span>
-            <ChevronDown className="w-4 h-4 text-[#C084FC] animate-bounce" />
+            <ChevronDown className="w-4 h-4 text-[#B45309] animate-bounce" />
           </div>
         </motion.div>
 

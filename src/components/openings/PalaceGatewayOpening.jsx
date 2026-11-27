@@ -69,7 +69,7 @@ const PalaceGatewayOpening = ({ onOpen }) => {
       particleCount: 100,
       spread: 85,
       origin: { y: 0.52 },
-      colors: ['#C084FC', '#E9D5FF', '#FAF5FF', '#9333EA', '#D8B4FE', '#ffffff'],
+      colors: ['#FEF08A', '#FDE047', '#F59E0B', '#D97706', '#FFFFFF'],
     });
 
     // Step 2: Swing doors outward in 3D
