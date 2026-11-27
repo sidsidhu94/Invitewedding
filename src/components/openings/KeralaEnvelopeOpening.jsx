@@ -212,8 +212,8 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
                 className="absolute top-[145px] left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 flex items-center justify-center pointer-events-none"
               >
                 <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-full bg-gradient-to-tr from-[#B45309] via-[#D97706] to-[#F59E0B] p-0.5 shadow-lg flex items-center justify-center">
-                  <div className="w-full h-full rounded-full border border-[#FEF08A]/80 flex items-center justify-center bg-[#783E12]">
-                    <span className="font-malayalam font-bold text-xs sm:text-sm text-[#FEF3C7] tracking-wider">
+                  <div className="w-full h-full rounded-full border border-[#FEF08A]/80 flex items-center justify-center bg-[#783E12] px-1">
+                    <span className="font-malayalam font-bold text-xs sm:text-sm text-[#FEF3C7] tracking-wider whitespace-nowrap leading-none select-none">
                       ഷ &amp; കീ
                     </span>
                   </div>

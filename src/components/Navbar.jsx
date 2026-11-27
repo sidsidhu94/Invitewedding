@@ -48,22 +48,17 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
-        {/* Monogram Logo in Pure Malayalam */}
+        {/* Couple Brand Title in Pure Malayalam */}
         <a
           href="#hero"
           onClick={(e) => handleNavClick(e, '#hero')}
-          className="flex items-center gap-2.5 group"
+          className="flex items-center gap-1.5 group py-1"
         >
-          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-[#D97706] flex items-center justify-center bg-[#FEF3C7] group-hover:scale-105 transition-all shadow-sm">
-            <span className="font-malayalam text-[#2C1405] font-bold text-xs sm:text-sm tracking-wide">
-              ഷ<span className="text-[#B45309] font-normal mx-0.5">&amp;</span>കീ
-            </span>
-          </div>
-          <div className="flex flex-col text-left">
-            <span className="font-malayalam text-[#2C1405] text-xs sm:text-sm font-bold tracking-wider leading-tight">
-              {weddingData.groom.shortName} <span className="text-[#B45309]">&amp;</span> {weddingData.bride.shortName}
-            </span>
-          </div>
+          <span className="text-[#B45309] text-xs select-none">✦</span>
+          <span className="font-malayalam text-[#2C1405] text-sm sm:text-base font-bold tracking-wide whitespace-nowrap group-hover:text-[#B45309] transition-colors">
+            {weddingData.groom.shortName} <span className="font-serif text-[#B45309] font-normal mx-0.5">&amp;</span> {weddingData.bride.shortName}
+          </span>
+          <span className="text-[#B45309] text-xs select-none">✦</span>
         </a>
 
         {/* Desktop Nav Links */}
