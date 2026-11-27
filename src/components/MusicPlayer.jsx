@@ -20,9 +20,20 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
     
     if (fadeIntervalRef.current) clearInterval(fadeIntervalRef.current);
     
+    // Unlock Web Audio API context if available
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (AudioCtx) {
+        if (!window.__weddingAudioCtx) window.__weddingAudioCtx = new AudioCtx();
+        if (window.__weddingAudioCtx.state === 'suspended') {
+          window.__weddingAudioCtx.resume().catch(() => {});
+        }
+      }
+    } catch (_) {}
+
     // Ensure audio is unmuted and play immediately
     audio.muted = false;
-    audio.volume = 0.3;
+    audio.volume = 0.5;
     const playPromise = audio.play();
     
     if (playPromise !== undefined) {
@@ -30,7 +41,7 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
         .then(() => {
           setIsPlaying(true);
           const targetVol = isMuted ? 0 : volume;
-          let currentVol = 0.3;
+          let currentVol = 0.5;
           const step = Math.max(0.06, targetVol / 10);
           
           fadeIntervalRef.current = setInterval(() => {
@@ -45,7 +56,27 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
           }, 60);
         })
         .catch((e) => {
-          console.log('Audio play error:', e);
+          console.log('Direct autoplay blocked by browser policy; starting muted and auto-unmuting on first interaction:', e);
+          // Fallback: Start muted playback so the audio buffer is running in browser
+          audio.muted = true;
+          audio.play().then(() => {
+            setIsPlaying(true);
+          }).catch(() => {});
+
+          // Auto-unmute immediately on the slightest interaction anywhere
+          const autoUnmuteOnGesture = () => {
+            if (!audio) return;
+            audio.muted = false;
+            audio.volume = volume || 0.8;
+            audio.play().then(() => setIsPlaying(true)).catch(() => {});
+            ['pointerdown', 'touchstart', 'click', 'scroll', 'wheel', 'mousemove', 'keydown'].forEach((evt) => {
+              window.removeEventListener(evt, autoUnmuteOnGesture);
+            });
+          };
+
+          ['pointerdown', 'touchstart', 'click', 'scroll', 'wheel', 'mousemove', 'keydown'].forEach((evt) => {
+            window.addEventListener(evt, autoUnmuteOnGesture, { passive: true, once: true });
+          });
         });
     }
   }, [isMuted, volume]);
@@ -112,6 +143,8 @@ const MusicPlayer = ({ autoPlayTrigger, onReplayEnvelope }) => {
         id="wedding-audio-element"
         loop
         preload="auto"
+        autoPlay
+        playsInline
         onPlay={() => {
           setIsPlaying(true);
           window.dispatchEvent(new CustomEvent('weddingAudioState', { detail: { isPlaying: true } }));

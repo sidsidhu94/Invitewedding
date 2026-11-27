@@ -41,10 +41,17 @@ export const AutoScrollTour = ({ enabled = true }) => {
       if (typeof window !== 'undefined' && window.__playWeddingMusic) {
         window.__playWeddingMusic();
       }
-      const audio = document.querySelector('audio');
-      if (audio && audio.paused) {
+      const audio = document.getElementById('wedding-audio-element') || document.querySelector('audio');
+      if (audio) {
         audio.muted = false;
-        audio.play().catch(() => {});
+        audio.volume = 0.8;
+        const p = audio.play();
+        if (p !== undefined) {
+          p.then(() => setIsAudioPlaying(true)).catch(() => {
+            audio.muted = true;
+            audio.play().catch(() => {});
+          });
+        }
       }
     }, 600);
 

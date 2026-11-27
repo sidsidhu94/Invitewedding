@@ -28,10 +28,18 @@ export const KeralaEnvelopeOpening = ({ onOpen, onStartOpen }) => {
       if (window.__playWeddingMusic) {
         window.__playWeddingMusic();
       }
-      const audio = document.querySelector('audio');
+      const audio = document.getElementById('wedding-audio-element') || document.querySelector('audio');
       if (audio) {
         audio.muted = false;
-        audio.play().catch(() => {});
+        audio.volume = 0.8;
+        const p = audio.play();
+        if (p !== undefined) {
+          p.catch(() => {
+            // If browser blocks unmuted playback on timer, start muted so stream runs
+            audio.muted = true;
+            audio.play().catch(() => {});
+          });
+        }
       }
       window.dispatchEvent(new CustomEvent('play-wedding-music'));
     }
