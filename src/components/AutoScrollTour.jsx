@@ -147,31 +147,13 @@ export const AutoScrollTour = ({ enabled = true }) => {
           initial={{ opacity: 0, y: -15 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -15 }}
-          className="fixed top-18 left-1/2 -translate-x-1/2 z-40 pointer-events-auto flex items-center gap-2 max-w-[95vw]"
+          className="fixed top-18 left-1/2 -translate-x-1/2 z-40 pointer-events-auto"
         >
-          {/* Prominent Music Play pill if audio is not playing */}
-          {!isAudioPlaying && (
-            <button
-              onClick={handleUnmuteAndPlay}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gradient-to-r from-[#B45309] to-[#D97706] text-[#FFFDF0] text-[11px] font-malayalam font-bold shadow-lg animate-bounce border border-[#FEF08A]/80 cursor-pointer active:scale-95 whitespace-nowrap"
-            >
-              <Volume2 className="w-3.5 h-3.5 text-[#FEF08A] animate-pulse" />
-              <span>പാട്ട് കേൾക്കുക (Play Song)</span>
-            </button>
-          )}
-
           <button
             onClick={stopAutoScroll}
             className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-[#FEF9E7]/95 border border-[#D97706]/50 text-[#4A2508] text-[10px] font-cinzel font-bold uppercase tracking-wider backdrop-blur-md shadow-md active:scale-95 cursor-pointer whitespace-nowrap"
           >
-            {isAudioPlaying ? (
-              <span className="flex items-center gap-1 text-[#B45309]">
-                <Music className="w-3 h-3 animate-spin" style={{ animationDuration: '4s' }} />
-                <span>Playing Music</span>
-              </span>
-            ) : (
-              <span>Auto-Scrolling</span>
-            )}
+            <span>Auto-Scrolling</span>
             <ChevronDown className="w-3 h-3 text-[#B45309] animate-bounce" />
             <span className="text-[#783E12]/70 font-normal pl-1 border-l border-[#D97706]/30">Touch to stop</span>
           </button>
